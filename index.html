@@ -184,19 +184,19 @@
         }
 
         .carousel-scroll {
-            animation: scroll-carousel 30s linear infinite;
             cursor: grab;
+            user-select: none;
         }
 
         .carousel-scroll:active {
             cursor: grabbing;
         }
 
-        .carousel-scroll.dragging {
-            animation-play-state: paused;
+        .carousel-scroll.auto-scroll {
+            animation: scroll-carousel 30s linear infinite;
         }
 
-        .carousel-scroll:hover {
+        .carousel-scroll.auto-scroll:hover {
             animation-play-state: paused;
         }
     </style>
@@ -246,8 +246,8 @@
     <!-- What we Serve Section -->
     <section class="bg-white px-[100px] py-[60px] flex flex-col gap-8">
         <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">最高峰のクルーズ体験</h2>
-        <div class="relative overflow-hidden">
-            <div class="carousel-scroll flex gap-8">
+        <div class="relative">
+            <div class="carousel-scroll flex gap-8 overflow-x-hidden">
             <!-- オリジナルカード -->
             <div class="card-hover bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5 flex-shrink-0 w-[300px]">
                 <div class="image-zoom w-full h-[250px] rounded-[10px] overflow-hidden">
@@ -366,8 +366,8 @@
     <!-- Our Destinations Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
         <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">夢の寄港地一例</h2>
-        <div class="relative overflow-hidden">
-            <div class="carousel-scroll flex gap-8">
+        <div class="relative">
+            <div class="carousel-scroll flex gap-8 overflow-x-hidden">
             <!-- オリジナルカード -->
             <div class="destination-card relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/969e23f890938181f2efff3b9ede4c9585c190ce.png" alt="Bali" class="w-full h-full object-cover">
@@ -505,8 +505,8 @@
     <!-- Community Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
         <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">私たちと一緒に、旅と資産を築く仲間になりませんか？</h2>
-        <div class="relative overflow-hidden">
-            <div class="carousel-scroll flex gap-8">
+        <div class="relative">
+            <div class="carousel-scroll flex gap-8 overflow-x-hidden">
                 <div class="card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0 w-[343px]">
                     <img src="http://localhost:3845/assets/20bde360e99314005a54423a82d48ccdf978a2b8.png" alt="月イチの作戦会議" class="w-full h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                     <div>
@@ -972,53 +972,67 @@
         const carousels = document.querySelectorAll('.carousel-scroll');
 
         carousels.forEach(carousel => {
+            // 初期状態で自動スクロールを有効化
+            carousel.classList.add('auto-scroll');
+
             let isDown = false;
             let startX;
-            let scrollLeft;
+            let isDragging = false;
 
             carousel.addEventListener('mousedown', (e) => {
                 isDown = true;
-                carousel.classList.add('dragging');
-                startX = e.pageX - carousel.offsetLeft;
-                scrollLeft = carousel.scrollLeft;
+                startX = e.pageX;
+                isDragging = false;
+                // 自動スクロールを一時停止
+                carousel.classList.remove('auto-scroll');
             });
 
             carousel.addEventListener('mouseleave', () => {
-                isDown = false;
-                carousel.classList.remove('dragging');
+                if (isDown) {
+                    isDown = false;
+                    // 自動スクロールを再開
+                    setTimeout(() => {
+                        carousel.classList.add('auto-scroll');
+                    }, 100);
+                }
             });
 
             carousel.addEventListener('mouseup', () => {
-                isDown = false;
-                carousel.classList.remove('dragging');
+                if (isDown) {
+                    isDown = false;
+                    // 自動スクロールを再開
+                    setTimeout(() => {
+                        carousel.classList.add('auto-scroll');
+                    }, 100);
+                }
             });
 
             carousel.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
                 e.preventDefault();
-                const x = e.pageX - carousel.offsetLeft;
-                const walk = (x - startX) * 2;
-                carousel.scrollLeft = scrollLeft - walk;
+                isDragging = true;
+                const x = e.pageX;
+                const walk = (x - startX);
+                startX = x;
+
+                // 現在のtransformを取得
+                const style = window.getComputedStyle(carousel);
+                const matrix = new DOMMatrix(style.transform);
+                const currentX = matrix.m41;
+
+                // 新しい位置を設定
+                carousel.style.transform = `translateX(${currentX + walk}px)`;
             });
 
-            // タッチデバイス対応
-            carousel.addEventListener('touchstart', (e) => {
-                isDown = true;
-                carousel.classList.add('dragging');
-                startX = e.touches[0].pageX - carousel.offsetLeft;
-                scrollLeft = carousel.scrollLeft;
+            // ホバー時の自動スクロール一時停止を有効化
+            carousel.addEventListener('mouseenter', () => {
+                if (!isDown) {
+                    carousel.style.animationPlayState = 'paused';
+                }
             });
 
-            carousel.addEventListener('touchend', () => {
-                isDown = false;
-                carousel.classList.remove('dragging');
-            });
-
-            carousel.addEventListener('touchmove', (e) => {
-                if (!isDown) return;
-                const x = e.touches[0].pageX - carousel.offsetLeft;
-                const walk = (x - startX) * 2;
-                carousel.scrollLeft = scrollLeft - walk;
+            carousel.addEventListener('mouseleave', () => {
+                carousel.style.animationPlayState = 'running';
             });
         });
 
