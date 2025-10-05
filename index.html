@@ -195,9 +195,11 @@
 <body class="bg-white">
     <!-- Hero Section with Background -->
     <div class="relative w-full h-[655px] overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0">
-            <img src="http://localhost:3845/assets/495077df99ef73836b7d340bbfb69f53615b175a.png" alt="" class="w-full h-full object-cover">
+        <!-- Background Image Slideshow -->
+        <div id="hero-slideshow" class="absolute inset-0">
+            <img src="http://localhost:3845/assets/495077df99ef73836b7d340bbfb69f53615b175a.png" alt="" class="hero-slide w-full h-full object-cover absolute inset-0 opacity-100 transition-opacity duration-1000">
+            <img src="sailing-off-into-the-sunset-e1567141894577.jpg" alt="" class="hero-slide w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="cordelia-party-banner-desktop.png" alt="" class="hero-slide w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-1000">
             <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/30"></div>
         </div>
 
@@ -870,6 +872,24 @@
         });
 
         startCommunityAutoPlay();
+
+        // ===== ヒーロー画像スライドショー =====
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        let currentHeroIndex = 0;
+
+        function nextHeroSlide() {
+            // 現在の画像をフェードアウト
+            heroSlides[currentHeroIndex].style.opacity = '0';
+
+            // 次のインデックスを計算
+            currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
+
+            // 次の画像をフェードイン
+            heroSlides[currentHeroIndex].style.opacity = '1';
+        }
+
+        // 5秒ごとに画像を切り替え
+        setInterval(nextHeroSlide, 5000);
 
     </script>
 </body>
