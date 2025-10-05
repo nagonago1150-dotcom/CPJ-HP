@@ -461,7 +461,7 @@
             <!-- Testimonial Card -->
             <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-[50px] h-[449px]">
                 <img src="http://localhost:3845/assets/f289701813e9a96246b3a006a3ac940ae18c2af9.svg" alt="" class="w-[52px] h-[43px]">
-                <p class="text-[#222222] text-[16px] leading-relaxed flex-1 font-light">毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。</p>
+                <p id="testimonial-text" class="text-[#222222] text-[16px] leading-relaxed flex-1 font-light">毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。</p>
 
                 <div class="flex items-center justify-end">
                     <img src="http://localhost:3845/assets/fdda65b3667882c2a6f05dfd475974c3eea11f66.svg" alt="" class="w-[52px] h-[43px] rotate-180">
@@ -476,17 +476,17 @@
                             <img src="http://localhost:3845/assets/d860343dcc8bd915fe9f2842314e2ee69940357c.png" alt="" class="w-[50px] h-[50px] rounded-full border-2 border-white">
                             <img src="http://localhost:3845/assets/7b6bab3c3330e2c1ea7b51911ac0b51f51ad0562.png" alt="" class="w-[50px] h-[50px] rounded-full border-2 border-white">
                         </div>
-                        <img src="http://localhost:3845/assets/3bd79ac145447af7ae55842a652279726328bd55.png" alt="" class="w-[80px] h-[80px] rounded-full">
+                        <img id="testimonial-avatar" src="http://localhost:3845/assets/3bd79ac145447af7ae55842a652279726328bd55.png" alt="" class="w-[80px] h-[80px] rounded-full">
                         <div>
-                            <p class="text-[rgba(25,24,37,0.75)] text-[24px] font-medium">佐藤様</p>
-                            <p class="text-[rgba(25,24,37,0.75)] text-[16px] font-light">東京都</p>
+                            <p id="testimonial-name" class="text-[rgba(25,24,37,0.75)] text-[24px] font-medium">佐藤様</p>
+                            <p id="testimonial-location" class="text-[rgba(25,24,37,0.75)] text-[16px] font-light">東京都</p>
                         </div>
                     </div>
                     <div class="flex gap-2">
-                        <button class="w-[50px] h-[50px] bg-[#f6f5f5] rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all">
+                        <button id="testimonial-prev" class="w-[50px] h-[50px] bg-[#f6f5f5] rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all">
                             <img src="http://localhost:3845/assets/f4be0074f8866a627e1d82e8c06433c2ffac9249.svg" alt="" class="w-[7.6px] h-[15.3px] rotate-180">
                         </button>
-                        <button class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg hover:bg-[#7a2075] transition-all">
+                        <button id="testimonial-next" class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg hover:bg-[#7a2075] transition-all">
                             <img src="http://localhost:3845/assets/13cbf8b0dad6a5595287643c0e8d7b2fb4fe74e9.svg" alt="" class="w-[7.6px] h-[15.3px]">
                         </button>
                     </div>
@@ -495,24 +495,24 @@
 
             <!-- Video Gallery Card -->
             <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-5">
-                <div class="relative h-[300px] rounded-[10px] overflow-hidden flex items-center justify-center bg-gray-200">
+                <div id="gallery-main-image" class="relative h-[300px] rounded-[10px] overflow-hidden flex items-center justify-center bg-gray-200 cursor-pointer">
                     <img src="http://localhost:3845/assets/d4e1e525adf34d0a116a3583f49147e8a8c66f9e.png" alt="" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <img src="http://localhost:3845/assets/85b78f4ab6e382f5963b24ec9011fe03eacd389c.png" alt="Play" class="w-[117px] h-[117px]">
                     </div>
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <button class="w-[50px] h-[50px] bg-[#f6f5f5] rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all">
+                    <button id="gallery-prev" class="w-[50px] h-[50px] bg-[#f6f5f5] rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all">
                         <img src="http://localhost:3845/assets/f4be0074f8866a627e1d82e8c06433c2ffac9249.svg" alt="" class="w-[7.6px] h-[15.3px] rotate-180">
                     </button>
                     <div class="flex gap-[11px]">
-                        <img src="http://localhost:3845/assets/2be388556490e4fe5b69dbfbd8cc61e2d38b7eae.png" alt="" class="w-[90px] h-[90px] rounded-[10px] object-cover">
-                        <img src="http://localhost:3845/assets/c393d8f84a2e42ea14763b3e75da283194a6f0e9.png" alt="" class="w-[90px] h-[90px] rounded-[10px] object-cover">
-                        <img src="http://localhost:3845/assets/2aaf09dec80b069b0f6f76a9f44fffc43c81b19d.png" alt="" class="w-[90px] h-[90px] rounded-[10px] object-cover">
-                        <img src="http://localhost:3845/assets/4be65ccd1c8e940f34dc85e3e64a99e8a4b09824.png" alt="" class="w-[90px] h-[90px] rounded-[10px] object-cover">
+                        <img src="http://localhost:3845/assets/2be388556490e4fe5b69dbfbd8cc61e2d38b7eae.png" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="0">
+                        <img src="http://localhost:3845/assets/c393d8f84a2e42ea14763b3e75da283194a6f0e9.png" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="1">
+                        <img src="http://localhost:3845/assets/2aaf09dec80b069b0f6f76a9f44fffc43c81b19d.png" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="2">
+                        <img src="http://localhost:3845/assets/4be65ccd1c8e940f34dc85e3e64a99e8a4b09824.png" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="3">
                     </div>
-                    <button class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg hover:bg-[#7a2075] transition-all">
+                    <button id="gallery-next" class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg hover:bg-[#7a2075] transition-all">
                         <img src="http://localhost:3845/assets/13cbf8b0dad6a5595287643c0e8d7b2fb4fe74e9.svg" alt="" class="w-[7.6px] h-[15.3px]">
                     </button>
                 </div>
@@ -662,6 +662,135 @@
                 }
             });
         });
+
+        // ===== 口コミスライダー =====
+        const testimonials = [
+            {
+                text: '毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。',
+                name: '佐藤様',
+                location: '東京都',
+                avatar: 'http://localhost:3845/assets/3bd79ac145447af7ae55842a652279726328bd55.png'
+            },
+            {
+                text: '最初は半信半疑でしたが、実際にクルーズに参加してみて本当に素晴らしい体験ができました。毎月のポイント還元も魅力的で、次の旅行が楽しみです。サポートも丁寧で安心して利用できています。',
+                name: '田中様',
+                location: '大阪府',
+                avatar: 'http://localhost:3845/assets/798133786412319b2966c968193072cd8da29ef8.png'
+            },
+            {
+                text: '世界中の素晴らしい場所を訪れながら、同時に資産形成ができるなんて夢のようです。クルーズの質も高く、スタッフの対応も素晴らしい。友人にも自信を持って勧められるサービスです。',
+                name: '鈴木様',
+                location: '神奈川県',
+                avatar: 'http://localhost:3845/assets/d860343dcc8bd915fe9f2842314e2ee69940357c.png'
+            }
+        ];
+
+        let currentTestimonialIndex = 0;
+        let testimonialAutoPlayInterval;
+
+        function updateTestimonial(index) {
+            const testimonial = testimonials[index];
+            document.getElementById('testimonial-text').textContent = testimonial.text;
+            document.getElementById('testimonial-name').textContent = testimonial.name;
+            document.getElementById('testimonial-location').textContent = testimonial.location;
+            document.getElementById('testimonial-avatar').src = testimonial.avatar;
+        }
+
+        function nextTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            updateTestimonial(currentTestimonialIndex);
+        }
+
+        function prevTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial(currentTestimonialIndex);
+        }
+
+        function startTestimonialAutoPlay() {
+            testimonialAutoPlayInterval = setInterval(nextTestimonial, 5000);
+        }
+
+        document.getElementById('testimonial-next').addEventListener('click', () => {
+            clearInterval(testimonialAutoPlayInterval);
+            nextTestimonial();
+            startTestimonialAutoPlay();
+        });
+
+        document.getElementById('testimonial-prev').addEventListener('click', () => {
+            clearInterval(testimonialAutoPlayInterval);
+            prevTestimonial();
+            startTestimonialAutoPlay();
+        });
+
+        startTestimonialAutoPlay();
+
+        // ===== ギャラリースライダー =====
+        const galleryImages = [
+            'http://localhost:3845/assets/2be388556490e4fe5b69dbfbd8cc61e2d38b7eae.png',
+            'http://localhost:3845/assets/c393d8f84a2e42ea14763b3e75da283194a6f0e9.png',
+            'http://localhost:3845/assets/2aaf09dec80b069b0f6f76a9f44fffc43c81b19d.png',
+            'http://localhost:3845/assets/4be65ccd1c8e940f34dc85e3e64a99e8a4b09824.png'
+        ];
+
+        let currentGalleryIndex = 0;
+        let galleryAutoPlayInterval;
+
+        function updateGalleryImage(index) {
+            const mainImageContainer = document.getElementById('gallery-main-image');
+            const imgElement = mainImageContainer.querySelector('img');
+            imgElement.src = galleryImages[index];
+
+            // サムネイルのハイライト更新
+            document.querySelectorAll('.gallery-thumbnail').forEach((thumb, i) => {
+                if (i === index) {
+                    thumb.classList.add('border-[#93288e]');
+                    thumb.classList.remove('border-transparent');
+                } else {
+                    thumb.classList.remove('border-[#93288e]');
+                    thumb.classList.add('border-transparent');
+                }
+            });
+        }
+
+        function nextGalleryImage() {
+            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            updateGalleryImage(currentGalleryIndex);
+        }
+
+        function prevGalleryImage() {
+            currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateGalleryImage(currentGalleryIndex);
+        }
+
+        function startGalleryAutoPlay() {
+            galleryAutoPlayInterval = setInterval(nextGalleryImage, 4000);
+        }
+
+        document.getElementById('gallery-next').addEventListener('click', () => {
+            clearInterval(galleryAutoPlayInterval);
+            nextGalleryImage();
+            startGalleryAutoPlay();
+        });
+
+        document.getElementById('gallery-prev').addEventListener('click', () => {
+            clearInterval(galleryAutoPlayInterval);
+            prevGalleryImage();
+            startGalleryAutoPlay();
+        });
+
+        // サムネイルクリックで切り替え
+        document.querySelectorAll('.gallery-thumbnail').forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                clearInterval(galleryAutoPlayInterval);
+                currentGalleryIndex = index;
+                updateGalleryImage(index);
+                startGalleryAutoPlay();
+            });
+        });
+
+        // 初期ハイライト設定
+        updateGalleryImage(0);
+        startGalleryAutoPlay();
 
     </script>
 </body>
