@@ -246,7 +246,8 @@
     <!-- Our Destinations Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
         <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">夢の寄港地一例</h2>
-        <div class="flex gap-8 overflow-x-auto">
+        <div class="relative overflow-hidden">
+            <div id="destinations-carousel" class="flex gap-8 transition-transform duration-700 ease-in-out">
             <div class="fade-up destination-card relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/969e23f890938181f2efff3b9ede4c9585c190ce.png" alt="Bali" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
@@ -281,6 +282,7 @@
                 <img src="http://localhost:3845/assets/52532b3020db8e39975e4416895885b478f7250f.png" alt="Sri Lanka" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
                 <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide z-20">Sri Lanka</p>
+            </div>
             </div>
         </div>
     </section>
@@ -598,6 +600,48 @@
                 }
             });
         });
+
+        // ===== デスティネーションカルーセル =====
+        const carousel = document.getElementById('destinations-carousel');
+        let currentIndex = 0;
+        let isAutoPlaying = true;
+        let autoPlayInterval;
+
+        // カードの幅 + gap
+        const cardWidth = 343 + 32; // 343px (カード幅) + 32px (gap-8)
+
+        function startAutoPlay() {
+            if (!carousel) return;
+
+            autoPlayInterval = setInterval(() => {
+                if (isAutoPlaying) {
+                    currentIndex++;
+
+                    // 7枚のカードがあるので、3枚目まで行ったら最初に戻る
+                    // （画面に3-4枚表示されるため）
+                    if (currentIndex > 4) {
+                        currentIndex = 0;
+                    }
+
+                    // スムーズにスライド
+                    carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+                }
+            }, 3000); // 3秒ごと
+        }
+
+        // ホバーで一時停止
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => {
+                isAutoPlaying = false;
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isAutoPlaying = true;
+            });
+
+            // ページロード時に自動再生開始
+            startAutoPlay();
+        }
     </script>
 </body>
 </html>
