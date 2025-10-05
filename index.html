@@ -36,6 +36,142 @@
             letter-spacing: 0.1em;
             font-weight: 500;
         }
+
+        /* ===== アニメーション用クラス ===== */
+
+        /* フェードアップアニメーション */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ページロード時のアニメーション */
+        .hero-title {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        .hero-content {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+
+        .nav-bar {
+            opacity: 0;
+            animation: slideDown 0.8s ease-out 0.1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== ホバーエフェクト ===== */
+
+        /* カードホバー効果 */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 12px 48px 0px rgba(250,134,183,0.35);
+        }
+
+        /* 画像ズームホバー */
+        .image-zoom {
+            overflow: hidden;
+        }
+
+        .image-zoom img {
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .image-zoom:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        /* ボタンホバー効果（強化版） */
+        .btn-hover {
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(147, 40, 142, 0.3);
+        }
+
+        .btn-hover:active {
+            transform: translateY(0);
+        }
+
+        /* デスティネーションカードホバー */
+        .destination-card {
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+
+        .destination-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.75));
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .destination-card:hover::after {
+            opacity: 0.5;
+        }
+
+        /* チャットボタンホバー */
+        .chat-button {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(147, 40, 142, 0.4);
+        }
+
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 遅延アニメーション用 */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
     </style>
 </head>
 <body class="bg-white">
@@ -48,7 +184,7 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="relative z-10 flex items-center gap-[84px] px-[100px] py-[30px]">
+        <nav class="nav-bar relative z-10 flex items-center gap-[84px] px-[100px] py-[30px]">
             <div class="w-[300px] h-[84px]">
                 <img src="icon.png" alt="CRUISE PARTNERs Japan" class="w-full h-full object-contain">
             </div>
@@ -62,10 +198,10 @@
                 <p class="text-white text-[16px] font-light tracking-wider">ビジネスについて</p>
             </div>
             <div class="flex gap-3">
-                <button class="bg-[#93288e] text-white px-10 py-4 rounded-sm font-medium text-[14px] tracking-widest hover:bg-[#7a2075] transition-all">
+                <button class="btn-hover bg-[#93288e] text-white px-10 py-4 rounded-sm font-medium text-[14px] tracking-widest hover:bg-[#7a2075] transition-all">
                     LINEで限定情報
                 </button>
-                <button class="bg-transparent border-2 border-white text-white px-10 py-4 rounded-sm font-medium text-[14px] tracking-widest hover:bg-white/10 transition-all">
+                <button class="btn-hover bg-transparent border-2 border-white text-white px-10 py-4 rounded-sm font-medium text-[14px] tracking-widest hover:bg-white/10 transition-all">
                     個別相談を予約
                 </button>
             </div>
@@ -73,12 +209,12 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 flex flex-col items-center justify-center gap-10 px-[300px] mt-[107px]">
-            <h1 class="text-white text-[66px] text-center leading-relaxed font-light">
+            <h1 class="hero-title text-white text-[66px] text-center leading-relaxed font-light">
                 旅をしながら、資産を築く。
             </h1>
 
             <!-- Value Propositions -->
-            <div class="w-full backdrop-blur-[17.7px] bg-black/40 rounded-[17.7px] p-[17.7px]">
+            <div class="hero-content w-full backdrop-blur-[17.7px] bg-black/40 rounded-[17.7px] p-[17.7px]">
                 <div class="flex gap-8 w-full">
                     <div class="flex-1 flex items-center gap-4">
                         <div class="text-[40px]">✓</div>
@@ -102,22 +238,22 @@
 
     <!-- What we Serve Section -->
     <section class="bg-white px-[100px] py-[60px] flex flex-col gap-8">
-        <h2 class="font-light text-[#1e1e1e] text-[44px]">最高峰のクルーズ体験</h2>
+        <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">最高峰のクルーズ体験</h2>
         <div class="flex gap-8">
-            <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
-                <div class="w-full h-[250px] rounded-[10px] overflow-hidden">
+            <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
+                <div class="image-zoom w-full h-[250px] rounded-[10px] overflow-hidden">
                     <img src="http://localhost:3845/assets/9b7db5903bc5588c017a4412dcf5e0236dfd8f04.png" alt="5つ星ホテル級の客室" class="w-full h-full object-cover">
                 </div>
                 <p class="text-[#2a2a2a] text-[24px] text-center font-medium tracking-wide">5つ星ホテル級の客室</p>
             </div>
-            <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
-                <div class="w-full h-[250px] rounded-[10px] overflow-hidden">
+            <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
+                <div class="image-zoom w-full h-[250px] rounded-[10px] overflow-hidden">
                     <img src="http://localhost:3845/assets/d4e1e525adf34d0a116a3583f49147e8a8c66f9e.png" alt="洋上のリゾートプール" class="w-full h-full object-cover">
                 </div>
                 <p class="text-[#2a2a2a] text-[24px] text-center font-medium tracking-wide">洋上のリゾートプール</p>
             </div>
-            <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
-                <div class="w-full h-[250px] rounded-[10px] overflow-hidden">
+            <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
+                <div class="image-zoom w-full h-[250px] rounded-[10px] overflow-hidden">
                     <img src="http://localhost:3845/assets/c393d8f84a2e42ea14763b3e75da283194a6f0e9.png" alt="圧巻のエンターテイメント" class="w-full h-full object-cover">
                 </div>
                 <p class="text-[#2a2a2a] text-[24px] text-center font-medium tracking-wide">圧巻のエンターテイメント</p>
@@ -127,36 +263,36 @@
 
     <!-- Our Destinations Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
-        <h2 class="font-light text-[#1e1e1e] text-[44px]">夢の寄港地一例</h2>
+        <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">夢の寄港地一例</h2>
         <div class="flex gap-8 overflow-x-auto">
-            <div class="relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
+            <div class="fade-up destination-card relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/969e23f890938181f2efff3b9ede4c9585c190ce.png" alt="Bali" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Bali, Indonesia</p>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide z-20">Bali, Indonesia</p>
             </div>
-            <div class="relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
+            <div class="fade-up destination-card relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/df4cea8c0751e8c17c78d10677433965a8c4b423.png" alt="Kerry" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Kerry, Ireland</p>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide z-20">Kerry, Ireland</p>
             </div>
-            <div class="relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
+            <div class="fade-up destination-card relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/be5c244014353051305c079b24d266cc37dca73c.png" alt="Sydney" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Sydney, Australia</p>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide z-20">Sydney, Australia</p>
             </div>
-            <div class="relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
+            <div class="fade-up destination-card relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/8cb20b5ee19a04285eec3f2f852f4737c67a7b0c.png" alt="Paris" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Paris, France</p>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide z-20">Paris, France</p>
             </div>
         </div>
     </section>
 
     <!-- Offers Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
-        <h2 class="font-light text-[#1e1e1e] text-[44px]">CRUISE PARTNERs Japanがお約束する3つの価値</h2>
+        <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">CRUISE PARTNERs Japanがお約束する3つの価値</h2>
         <div class="flex flex-wrap gap-8 justify-center">
-            <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-4 w-[600px]">
+            <div class="fade-up card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-4 w-[600px]">
                 <div class="flex gap-6">
                     <img src="http://localhost:3845/assets/5f5e746b9aaa399d95d5ceee9ef1850f8ce21efe.png" alt="" class="w-[225px] h-[225px] object-cover">
                     <div class="flex-1 flex flex-col gap-[17.7px]">
@@ -165,11 +301,11 @@
                             <p class="font-medium text-black text-[26.6px] tracking-wide">驚異的な割引率</p>
                         </div>
                         <p class="text-black/50 text-[17.7px] leading-relaxed">ポイントが2倍になる仕組みで、旅費が実質25%以上お得に。</p>
-                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
+                        <button class="btn-hover bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-4 w-[600px]">
+            <div class="fade-up card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-4 w-[600px]">
                 <div class="flex gap-6">
                     <img src="http://localhost:3845/assets/f5f772535c143271535a99ce75bc7fa1db8edb13.png" alt="" class="w-[225px] h-[225px] object-cover">
                     <div class="flex-1 flex flex-col gap-[17.7px]">
@@ -178,11 +314,11 @@
                             <p class="font-medium text-black text-[26.6px] tracking-wide">無料でのクルーズ旅行</p>
                         </div>
                         <p class="text-black/50 text-[17.7px] leading-relaxed">5人の紹介で月会費が無料になり、実質0円で旅を続ける秘訣。</p>
-                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
+                        <button class="btn-hover bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-4 w-[600px]">
+            <div class="fade-up card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-4 w-[600px]">
                 <div class="flex gap-6">
                     <img src="http://localhost:3845/assets/488a0b3845dc4816badfb98ab7b50cb84d7e56fc.png" alt="" class="w-[225px] h-[225px] object-cover">
                     <div class="flex-1 flex flex-col gap-[17.7px]">
@@ -191,7 +327,7 @@
                             <p class="font-medium text-black text-[26.6px] tracking-wide">旅を通じた資産形成</p>
                         </div>
                         <p class="text-black/50 text-[17.7px] leading-relaxed">旅を楽しみながら、権利収入を得て資産を築く方法。</p>
-                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
+                        <button class="btn-hover bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
                     </div>
                 </div>
             </div>
@@ -200,42 +336,42 @@
 
     <!-- Browse by Country Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
-        <h2 class="font-light text-[#1e1e1e] text-[44px]">世界中に広がる航路</h2>
+        <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">世界中に広がる航路</h2>
         <div class="flex gap-8">
-            <div class="flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
+            <div class="fade-up destination-card flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
                 <img src="http://localhost:3845/assets/3c6219c7d44511c0309edf63cfd00006d6a4f911.png" alt="India" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">India</p>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide z-20">India</p>
             </div>
-            <div class="flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
+            <div class="fade-up destination-card flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
                 <img src="http://localhost:3845/assets/07681f978d09050f556e9bb615a3c0594ad2143d.png" alt="Dubai" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Dubai</p>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide z-20">Dubai</p>
             </div>
-            <div class="flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
+            <div class="fade-up destination-card flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
                 <img src="http://localhost:3845/assets/52532b3020db8e39975e4416895885b478f7250f.png" alt="Sri Lanka" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Sri Lanka</p>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75 pointer-events-none z-10"></div>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide z-20">Sri Lanka</p>
             </div>
         </div>
     </section>
 
     <!-- Travel Expert CTA Section -->
-    <section class="relative w-full h-[437px] overflow-hidden">
+    <section class="fade-up relative w-full h-[437px] overflow-hidden">
         <img src="http://localhost:3845/assets/31eccc4ec13abe4e291455b0b4c692313ca92c7c.png" alt="" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/35"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center gap-[26px] px-[162px]">
             <h2 class="font-light text-white text-[44px] text-center leading-relaxed">CRUISE PARTNERs Japanのコンシェルジュと、あなたの理想の船旅を計画しませんか？</h2>
             <p class="text-white text-[24px] text-center font-light tracking-wide">私たちのプロフェッショナルなアドバイザーが、あなたに最適なプランを無料で作成します。</p>
-            <button class="bg-[#93288e] text-white px-8 py-4 rounded-sm font-medium text-[20px] hover:bg-[#7a2075] transition-all">今すぐ無料相談</button>
+            <button class="btn-hover bg-[#93288e] text-white px-8 py-4 rounded-sm font-medium text-[20px] hover:bg-[#7a2075] transition-all">今すぐ無料相談</button>
         </div>
     </section>
 
     <!-- Community Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
-        <h2 class="font-light text-[#1e1e1e] text-[44px]">私たちと一緒に、旅と資産を築く仲間になりませんか？</h2>
+        <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">私たちと一緒に、旅と資産を築く仲間になりませんか？</h2>
         <div class="flex gap-8 overflow-x-auto">
-            <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
+            <div class="fade-up card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
                 <img src="http://localhost:3845/assets/20bde360e99314005a54423a82d48ccdf978a2b8.png" alt="月イチの作戦会議" class="w-[343px] h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                 <div>
                     <p class="font-medium text-black opacity-80 text-[26.6px] mb-[8.9px] tracking-wide">月イチの作戦会議</p>
@@ -243,7 +379,7 @@
                     <p class="text-black/50 text-[17.7px] font-light">57名のメンバーが活動中</p>
                 </div>
             </div>
-            <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
+            <div class="fade-up card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
                 <img src="http://localhost:3845/assets/ed12cfed3e1dbf775a10beca9749158cb56dcf0d.png" alt="メンバー達成会" class="w-[343px] h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                 <div>
                     <p class="font-medium text-black opacity-80 text-[26.6px] mb-[8.9px] tracking-wide">メンバー達成会</p>
@@ -251,7 +387,7 @@
                     <p class="text-black/50 text-[17.7px] font-light">57名のメンバーが活動中</p>
                 </div>
             </div>
-            <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
+            <div class="fade-up card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
                 <img src="http://localhost:3845/assets/a5ae148120010c170e3aee024c170e88efd5455d.png" alt="チーム交流会" class="w-[343px] h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                 <div>
                     <p class="font-medium text-black opacity-80 text-[26.6px] mb-[8.9px] tracking-wide">チーム交流会</p>
@@ -259,7 +395,7 @@
                     <p class="text-black/50 text-[17.7px] font-light">57名のメンバーが活動中</p>
                 </div>
             </div>
-            <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
+            <div class="fade-up card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
                 <img src="http://localhost:3845/assets/2151d09753143543835d02fd5707e474ab8f731e.png" alt="学習勉強会" class="w-[343px] h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                 <div>
                     <p class="font-medium text-black opacity-80 text-[26.6px] mb-[8.9px] tracking-wide">学習勉強会</p>
@@ -272,7 +408,7 @@
 
     <!-- Reviews & Testimonials Section -->
     <section class="px-[100px] py-[60px] bg-white">
-        <div class="flex gap-4 items-center mb-8">
+        <div class="fade-up flex gap-4 items-center mb-8">
             <div class="flex-1">
                 <p class="font-semibold text-[#93288e] text-[18px] uppercase tracking-widest mb-4">メンバーからの喜びの声</p>
                 <h2 class="font-light text-[#1e1e1e] text-[44px]">私たちのサービス体験談</h2>
@@ -284,7 +420,7 @@
 
         <div class="flex gap-8">
             <!-- Testimonial Card -->
-            <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-[50px] h-[449px]">
+            <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-[50px] h-[449px]">
                 <img src="http://localhost:3845/assets/f289701813e9a96246b3a006a3ac940ae18c2af9.svg" alt="" class="w-[52px] h-[43px]">
                 <p class="text-[#222222] text-[16px] leading-relaxed flex-1 font-light">毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。</p>
 
@@ -319,7 +455,7 @@
             </div>
 
             <!-- Video Gallery Card -->
-            <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-5">
+            <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-5">
                 <div class="relative h-[300px] rounded-[10px] overflow-hidden flex items-center justify-center bg-gray-200">
                     <img src="http://localhost:3845/assets/d4e1e525adf34d0a116a3583f49147e8a8c66f9e.png" alt="" class="w-full h-full object-cover">
                     <div class="absolute inset-0 flex items-center justify-center">
@@ -429,10 +565,64 @@
     </footer>
 
     <!-- Chatbot Button -->
-    <div class="fixed bottom-[20px] right-[20px] w-[77px] h-[77px] bg-[#93288e] rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-[#7a2075] transition-colors">
+    <div class="chat-button fixed bottom-[20px] right-[20px] w-[77px] h-[77px] bg-[#93288e] rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-[#7a2075] transition-colors">
         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
         </svg>
     </div>
+
+    <script>
+        // ===== Intersection Observer でスクロールアニメーション =====
+
+        // Intersection Observerのオプション
+        const observerOptions = {
+            root: null, // ビューポートをルートとする
+            rootMargin: '0px 0px -100px 0px', // 要素が画面下から100px上に来たら発火
+            threshold: 0.1 // 要素の10%が見えたら発火
+        };
+
+        // アニメーションを実行するコールバック関数
+        const observerCallback = (entries, observer) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // 要素が画面に入ったら'active'クラスを追加
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, index * 100); // 各要素に100msの遅延を追加（順次表示）
+
+                    // 一度アニメーションしたら監視を解除（パフォーマンス向上）
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        // Observerインスタンスを作成
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // ページ読み込み後に監視を開始
+        document.addEventListener('DOMContentLoaded', () => {
+            // .fade-upクラスを持つすべての要素を監視
+            const fadeUpElements = document.querySelectorAll('.fade-up');
+
+            fadeUpElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // ===== スムーススクロール（オプション）=====
+        // ナビゲーションリンクにスムーススクロールを追加する場合
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
