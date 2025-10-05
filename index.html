@@ -407,7 +407,7 @@
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
         <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">私たちと一緒に、旅と資産を築く仲間になりませんか？</h2>
         <div class="relative overflow-hidden">
-            <div id="community-carousel" class="flex gap-8 transition-transform duration-500 ease-out">
+            <div class="carousel-scroll flex gap-8">
                 <div class="card-hover bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0 w-[343px]">
                     <img src="http://localhost:3845/assets/20bde360e99314005a54423a82d48ccdf978a2b8.png" alt="月イチの作戦会議" class="w-full h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                     <div>
@@ -824,49 +824,6 @@
         updateGalleryImage(0);
         startGalleryAutoPlay();
 
-        // ===== コミュニティカルーセル =====
-        const communityCarousel = document.getElementById('community-carousel');
-        let communityCurrentIndex = 0;
-        let communityAutoPlayInterval;
-        const communityCardWidth = 343 + 32; // 343px (カード幅) + 32px (gap-8)
-        const communityTotalCards = 4; // オリジナルのカード枚数
-
-        function updateCommunityCarousel() {
-            communityCarousel.style.transform = `translateX(-${communityCurrentIndex * communityCardWidth}px)`;
-        }
-
-        function nextCommunitySlide() {
-            communityCurrentIndex++;
-
-            if (communityCurrentIndex >= communityTotalCards) {
-                // 最後のカードに到達したら、一瞬で最初に戻る
-                communityCarousel.style.transition = 'none';
-                communityCurrentIndex = 0;
-                communityCarousel.style.transform = `translateX(0)`;
-
-                // 次のフレームでトランジションを再開
-                setTimeout(() => {
-                    communityCarousel.style.transition = 'transform 500ms ease-out';
-                }, 50);
-            } else {
-                updateCommunityCarousel();
-            }
-        }
-
-        function startCommunityAutoPlay() {
-            communityAutoPlayInterval = setInterval(nextCommunitySlide, 3000);
-        }
-
-        // ホバーで一時停止
-        communityCarousel.addEventListener('mouseenter', () => {
-            clearInterval(communityAutoPlayInterval);
-        });
-
-        communityCarousel.addEventListener('mouseleave', () => {
-            startCommunityAutoPlay();
-        });
-
-        startCommunityAutoPlay();
 
         // ===== ヒーロー画像スライドショー =====
         const heroSlides = document.querySelectorAll('.hero-slide');
