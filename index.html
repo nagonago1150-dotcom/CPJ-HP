@@ -7,19 +7,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&family=Poppins:wght@400;600;700&family=Rasa:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Noto Sans JP', sans-serif;
+            letter-spacing: 0.05em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .font-work-sans {
-            font-family: 'Work Sans', sans-serif;
+        .font-serif-jp {
+            font-family: 'Noto Serif JP', serif;
+            letter-spacing: 0.08em;
         }
-        .font-poppins {
-            font-family: 'Poppins', sans-serif;
+        .font-serif-en {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.02em;
         }
-        .font-rasa {
-            font-family: 'Rasa', serif;
+        .font-garamond {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.05em;
+        }
+        h1, h2, h3 {
+            font-family: 'Noto Serif JP', serif;
+            letter-spacing: 0.1em;
+            line-height: 1.6;
+        }
+        button {
+            letter-spacing: 0.1em;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -38,19 +53,19 @@
                 <img src="http://localhost:3845/assets/2a07c6524bf5c79b1f051bead942252adecafe1c.svg" alt="Cordelia Cruises" class="w-full h-full">
             </div>
             <div class="flex items-center gap-8 flex-1">
-                <div class="border-b border-white px-2.5 py-2.5">
-                    <p class="font-rasa text-white text-[20px]">サービスの魅力</p>
+                <div class="border-b-2 border-white/80 px-3 py-3">
+                    <p class="text-white text-[16px] font-medium tracking-wider">サービスの魅力</p>
                 </div>
-                <p class="font-rasa text-white text-[20px]">夢の寄港地</p>
-                <p class="font-rasa text-white text-[20px]">会員の声</p>
-                <p class="font-rasa text-white text-[20px]">無料相談</p>
-                <p class="font-rasa text-white text-[20px]">ビジネスについて</p>
+                <p class="text-white text-[16px] font-light tracking-wider">夢の寄港地</p>
+                <p class="text-white text-[16px] font-light tracking-wider">会員の声</p>
+                <p class="text-white text-[16px] font-light tracking-wider">無料相談</p>
+                <p class="text-white text-[16px] font-light tracking-wider">ビジネスについて</p>
             </div>
-            <div class="flex gap-2">
-                <button class="bg-[#93288e] text-white px-8 py-4 rounded-xl font-poppins font-semibold text-[13.8px]">
+            <div class="flex gap-3">
+                <button class="bg-[#93288e] text-white px-10 py-4 rounded-sm font-medium text-[14px] tracking-widest hover:bg-[#7a2075] transition-all">
                     LINEで限定情報
                 </button>
-                <button class="bg-white border-2 border-[#93288e] text-[#222222] px-8 py-4 rounded-xl font-poppins font-semibold text-[13.8px]">
+                <button class="bg-transparent border-2 border-white text-white px-10 py-4 rounded-sm font-medium text-[14px] tracking-widest hover:bg-white/10 transition-all">
                     個別相談を予約
                 </button>
             </div>
@@ -58,7 +73,7 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 flex flex-col items-center justify-center gap-10 px-[300px] mt-[107px]">
-            <h1 class="font-work-sans text-white text-[66px] text-center leading-normal">
+            <h1 class="text-white text-[66px] text-center leading-relaxed font-light">
                 旅をしながら、資産を築く。
             </h1>
 
@@ -67,15 +82,15 @@
                 <div class="flex gap-8 w-full">
                     <div class="flex-1 flex items-center gap-4">
                         <div class="text-[40px]">✓</div>
-                        <p class="font-poppins text-white text-[18px] font-medium">ポイントが2倍になる積立</p>
+                        <p class="text-white text-[18px] font-medium tracking-wide">ポイントが2倍になる積立</p>
                     </div>
                     <div class="flex-1 flex items-center gap-4">
                         <div class="text-[40px]">✓</div>
-                        <p class="font-poppins text-white text-[18px] font-medium">実質半額以下で世界を旅する</p>
+                        <p class="text-white text-[18px] font-medium tracking-wide">実質半額以下で世界を旅する</p>
                     </div>
                     <div class="flex-1 flex items-center gap-4">
                         <div class="text-[40px]">✓</div>
-                        <p class="font-poppins text-white text-[18px] font-medium">旅が無料になり、収入も得られる</p>
+                        <p class="text-white text-[18px] font-medium tracking-wide">旅が無料になり、収入も得られる</p>
                     </div>
                 </div>
             </div>
@@ -87,70 +102,70 @@
 
     <!-- What we Serve Section -->
     <section class="bg-white px-[100px] py-[60px] flex flex-col gap-8">
-        <h2 class="font-work-sans font-light text-[#1e1e1e] text-[44px] capitalize">最高峰のクルーズ体験</h2>
+        <h2 class="font-light text-[#1e1e1e] text-[44px]">最高峰のクルーズ体験</h2>
         <div class="flex gap-8">
             <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
                 <div class="w-full h-[250px] rounded-[10px] overflow-hidden">
                     <img src="http://localhost:3845/assets/9b7db5903bc5588c017a4412dcf5e0236dfd8f04.png" alt="5つ星ホテル級の客室" class="w-full h-full object-cover">
                 </div>
-                <p class="font-poppins text-[#2a2a2a] text-[24px] text-center">5つ星ホテル級の客室</p>
+                <p class="text-[#2a2a2a] text-[24px] text-center font-medium tracking-wide">5つ星ホテル級の客室</p>
             </div>
             <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
                 <div class="w-full h-[250px] rounded-[10px] overflow-hidden">
                     <img src="http://localhost:3845/assets/d4e1e525adf34d0a116a3583f49147e8a8c66f9e.png" alt="洋上のリゾートプール" class="w-full h-full object-cover">
                 </div>
-                <p class="font-poppins text-[#2a2a2a] text-[24px] text-center">洋上のリゾートプール</p>
+                <p class="text-[#2a2a2a] text-[24px] text-center font-medium tracking-wide">洋上のリゾートプール</p>
             </div>
             <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-2.5">
                 <div class="w-full h-[250px] rounded-[10px] overflow-hidden">
                     <img src="http://localhost:3845/assets/c393d8f84a2e42ea14763b3e75da283194a6f0e9.png" alt="圧巻のエンターテイメント" class="w-full h-full object-cover">
                 </div>
-                <p class="font-poppins text-[#2a2a2a] text-[24px] text-center">圧巻のエンターテイメント</p>
+                <p class="text-[#2a2a2a] text-[24px] text-center font-medium tracking-wide">圧巻のエンターテイメント</p>
             </div>
         </div>
     </section>
 
     <!-- Our Destinations Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
-        <h2 class="font-work-sans font-light text-[#1e1e1e] text-[44px] capitalize">夢の寄港地一例</h2>
+        <h2 class="font-light text-[#1e1e1e] text-[44px]">夢の寄港地一例</h2>
         <div class="flex gap-8 overflow-x-auto">
             <div class="relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/969e23f890938181f2efff3b9ede4c9585c190ce.png" alt="Bali" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-work-sans font-medium text-white text-[26.6px]">Bali, Indonesia</p>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Bali, Indonesia</p>
             </div>
             <div class="relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/df4cea8c0751e8c17c78d10677433965a8c4b423.png" alt="Kerry" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-work-sans font-medium text-white text-[26.6px]">Kerry, Ireland</p>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Kerry, Ireland</p>
             </div>
             <div class="relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/be5c244014353051305c079b24d266cc37dca73c.png" alt="Sydney" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-work-sans font-medium text-white text-[26.6px]">Sydney, Australia</p>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Sydney, Australia</p>
             </div>
             <div class="relative w-[343px] h-[221px] rounded-[8.9px] overflow-hidden flex-shrink-0">
                 <img src="http://localhost:3845/assets/8cb20b5ee19a04285eec3f2f852f4737c67a7b0c.png" alt="Paris" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-work-sans font-medium text-white text-[26.6px]">Paris, France</p>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Paris, France</p>
             </div>
         </div>
     </section>
 
     <!-- Offers Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
-        <h2 class="font-work-sans font-light text-[#1e1e1e] text-[44px] capitalize">CRUISE PARTNERs Japanがお約束する3つの価値</h2>
+        <h2 class="font-light text-[#1e1e1e] text-[44px]">CRUISE PARTNERs Japanがお約束する3つの価値</h2>
         <div class="flex flex-wrap gap-8 justify-center">
             <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-4 w-[600px]">
                 <div class="flex gap-6">
                     <img src="http://localhost:3845/assets/5f5e746b9aaa399d95d5ceee9ef1850f8ce21efe.png" alt="" class="w-[225px] h-[225px] object-cover">
                     <div class="flex-1 flex flex-col gap-[17.7px]">
                         <div>
-                            <p class="font-poppins text-black/50 text-[17.7px]">01</p>
-                            <p class="font-work-sans font-medium text-black text-[26.6px]">驚異的な割引率</p>
+                            <p class="text-black/50 text-[17.7px] font-light tracking-wider">01</p>
+                            <p class="font-medium text-black text-[26.6px] tracking-wide">驚異的な割引率</p>
                         </div>
-                        <p class="font-poppins text-black/50 text-[17.7px]">ポイントが2倍になる仕組みで、旅費が実質25%以上お得に。</p>
-                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-xl font-work-sans text-[17.7px] self-start">仕組みを詳しく</button>
+                        <p class="text-black/50 text-[17.7px] leading-relaxed">ポイントが2倍になる仕組みで、旅費が実質25%以上お得に。</p>
+                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
                     </div>
                 </div>
             </div>
@@ -159,11 +174,11 @@
                     <img src="http://localhost:3845/assets/f5f772535c143271535a99ce75bc7fa1db8edb13.png" alt="" class="w-[225px] h-[225px] object-cover">
                     <div class="flex-1 flex flex-col gap-[17.7px]">
                         <div>
-                            <p class="font-poppins text-black/50 text-[17.7px]">02</p>
-                            <p class="font-work-sans font-medium text-black text-[26.6px]">無料でのクルーズ旅行</p>
+                            <p class="text-black/50 text-[17.7px] font-light tracking-wider">02</p>
+                            <p class="font-medium text-black text-[26.6px] tracking-wide">無料でのクルーズ旅行</p>
                         </div>
-                        <p class="font-poppins text-black/50 text-[17.7px]">5人の紹介で月会費が無料になり、実質0円で旅を続ける秘訣。</p>
-                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-xl font-work-sans text-[17.7px] self-start">仕組みを詳しく</button>
+                        <p class="text-black/50 text-[17.7px] leading-relaxed">5人の紹介で月会費が無料になり、実質0円で旅を続ける秘訣。</p>
+                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
                     </div>
                 </div>
             </div>
@@ -172,11 +187,11 @@
                     <img src="http://localhost:3845/assets/488a0b3845dc4816badfb98ab7b50cb84d7e56fc.png" alt="" class="w-[225px] h-[225px] object-cover">
                     <div class="flex-1 flex flex-col gap-[17.7px]">
                         <div>
-                            <p class="font-poppins text-black/50 text-[17.7px]">03</p>
-                            <p class="font-work-sans font-medium text-black text-[26.6px]">旅を通じた資産形成</p>
+                            <p class="text-black/50 text-[17.7px] font-light tracking-wider">03</p>
+                            <p class="font-medium text-black text-[26.6px] tracking-wide">旅を通じた資産形成</p>
                         </div>
-                        <p class="font-poppins text-black/50 text-[17.7px]">旅を楽しみながら、権利収入を得て資産を築く方法。</p>
-                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-xl font-work-sans text-[17.7px] self-start">仕組みを詳しく</button>
+                        <p class="text-black/50 text-[17.7px] leading-relaxed">旅を楽しみながら、権利収入を得て資産を築く方法。</p>
+                        <button class="bg-[#93288e] text-white px-8 py-4 rounded-sm text-[17.7px] self-start hover:bg-[#7a2075] transition-all">仕組みを詳しく</button>
                     </div>
                 </div>
             </div>
@@ -185,22 +200,22 @@
 
     <!-- Browse by Country Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
-        <h2 class="font-work-sans font-light text-[#1e1e1e] text-[44px] capitalize">世界中に広がる航路</h2>
+        <h2 class="font-light text-[#1e1e1e] text-[44px]">世界中に広がる航路</h2>
         <div class="flex gap-8">
             <div class="flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
                 <img src="http://localhost:3845/assets/3c6219c7d44511c0309edf63cfd00006d6a4f911.png" alt="India" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-work-sans font-medium text-white text-[26.6px]">India</p>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">India</p>
             </div>
             <div class="flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
                 <img src="http://localhost:3845/assets/07681f978d09050f556e9bb615a3c0594ad2143d.png" alt="Dubai" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-work-sans font-medium text-white text-[26.6px]">Dubai</p>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Dubai</p>
             </div>
             <div class="flex-1 relative h-[221px] rounded-[8.9px] overflow-hidden">
                 <img src="http://localhost:3845/assets/52532b3020db8e39975e4416895885b478f7250f.png" alt="Sri Lanka" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/75"></div>
-                <p class="absolute bottom-[26.57px] left-[26.57px] font-work-sans font-medium text-white text-[26.6px]">Sri Lanka</p>
+                <p class="absolute bottom-[26.57px] left-[26.57px] font-serif-en font-medium text-white text-[26.6px] tracking-wide">Sri Lanka</p>
             </div>
         </div>
     </section>
@@ -210,46 +225,46 @@
         <img src="http://localhost:3845/assets/31eccc4ec13abe4e291455b0b4c692313ca92c7c.png" alt="" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/35"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center gap-[26px] px-[162px]">
-            <h2 class="font-work-sans font-light text-white text-[44px] text-center">CRUISE PARTNERs Japanのコンシェルジュと、あなたの理想の船旅を計画しませんか？</h2>
-            <p class="font-poppins text-white text-[24px] text-center">私たちのプロフェッショナルなアドバイザーが、あなたに最適なプランを無料で作成します。</p>
-            <button class="bg-[#93288e] text-white px-8 py-4 rounded-xl font-poppins font-semibold text-[20px]">今すぐ無料相談</button>
+            <h2 class="font-light text-white text-[44px] text-center leading-relaxed">CRUISE PARTNERs Japanのコンシェルジュと、あなたの理想の船旅を計画しませんか？</h2>
+            <p class="text-white text-[24px] text-center font-light tracking-wide">私たちのプロフェッショナルなアドバイザーが、あなたに最適なプランを無料で作成します。</p>
+            <button class="bg-[#93288e] text-white px-8 py-4 rounded-sm font-medium text-[20px] hover:bg-[#7a2075] transition-all">今すぐ無料相談</button>
         </div>
     </section>
 
     <!-- Community Section -->
     <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
-        <h2 class="font-work-sans font-light text-[#1e1e1e] text-[44px] capitalize">私たちと一緒に、旅と資産を築く仲間になりませんか？</h2>
+        <h2 class="font-light text-[#1e1e1e] text-[44px]">私たちと一緒に、旅と資産を築く仲間になりませんか？</h2>
         <div class="flex gap-8 overflow-x-auto">
             <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
                 <img src="http://localhost:3845/assets/20bde360e99314005a54423a82d48ccdf978a2b8.png" alt="月イチの作戦会議" class="w-[343px] h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                 <div>
-                    <p class="font-work-sans font-medium text-black opacity-80 text-[26.6px] mb-[8.9px]">月イチの作戦会議</p>
-                    <p class="font-poppins text-black/50 text-[17.7px]">メンバー限定イベント</p>
-                    <p class="font-poppins text-black/50 text-[17.7px]">57名のメンバーが活動中</p>
+                    <p class="font-medium text-black opacity-80 text-[26.6px] mb-[8.9px] tracking-wide">月イチの作戦会議</p>
+                    <p class="text-black/50 text-[17.7px] font-light">メンバー限定イベント</p>
+                    <p class="text-black/50 text-[17.7px] font-light">57名のメンバーが活動中</p>
                 </div>
             </div>
             <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
                 <img src="http://localhost:3845/assets/ed12cfed3e1dbf775a10beca9749158cb56dcf0d.png" alt="メンバー達成会" class="w-[343px] h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                 <div>
-                    <p class="font-work-sans font-medium text-black opacity-80 text-[26.6px] mb-[8.9px]">メンバー達成会</p>
-                    <p class="font-poppins text-black/50 text-[17.7px]">メンバー限定イベント</p>
-                    <p class="font-poppins text-black/50 text-[17.7px]">57名のメンバーが活動中</p>
+                    <p class="font-medium text-black opacity-80 text-[26.6px] mb-[8.9px] tracking-wide">メンバー達成会</p>
+                    <p class="text-black/50 text-[17.7px] font-light">メンバー限定イベント</p>
+                    <p class="text-black/50 text-[17.7px] font-light">57名のメンバーが活動中</p>
                 </div>
             </div>
             <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
                 <img src="http://localhost:3845/assets/a5ae148120010c170e3aee024c170e88efd5455d.png" alt="チーム交流会" class="w-[343px] h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                 <div>
-                    <p class="font-work-sans font-medium text-black opacity-80 text-[26.6px] mb-[8.9px]">チーム交流会</p>
-                    <p class="font-poppins text-black/50 text-[17.7px]">メンバー限定イベント</p>
-                    <p class="font-poppins text-black/50 text-[17.7px]">57名のメンバーが活動中</p>
+                    <p class="font-medium text-black opacity-80 text-[26.6px] mb-[8.9px] tracking-wide">チーム交流会</p>
+                    <p class="text-black/50 text-[17.7px] font-light">メンバー限定イベント</p>
+                    <p class="text-black/50 text-[17.7px] font-light">57名のメンバーが活動中</p>
                 </div>
             </div>
             <div class="bg-white rounded-[17.7px] shadow-[0px_4.428px_17.712px_0px_rgba(158,158,158,0.25)] p-[17.7px] flex-shrink-0">
                 <img src="http://localhost:3845/assets/2151d09753143543835d02fd5707e474ab8f731e.png" alt="学習勉強会" class="w-[343px] h-[221px] rounded-[8.9px] object-cover mb-[26.6px]">
                 <div>
-                    <p class="font-work-sans font-medium text-black opacity-80 text-[26.6px] mb-[8.9px]">学習勉強会</p>
-                    <p class="font-poppins text-black/50 text-[17.7px]">メンバー限定イベント</p>
-                    <p class="font-poppins text-black/50 text-[17.7px]">57名のメンバーが活動中</p>
+                    <p class="font-medium text-black opacity-80 text-[26.6px] mb-[8.9px] tracking-wide">学習勉強会</p>
+                    <p class="text-black/50 text-[17.7px] font-light">メンバー限定イベント</p>
+                    <p class="text-black/50 text-[17.7px] font-light">57名のメンバーが活動中</p>
                 </div>
             </div>
         </div>
@@ -259,11 +274,11 @@
     <section class="px-[100px] py-[60px] bg-white">
         <div class="flex gap-4 items-center mb-8">
             <div class="flex-1">
-                <p class="font-poppins font-semibold text-[#93288e] text-[18px] uppercase tracking-wider mb-4">メンバーからの喜びの声</p>
-                <h2 class="font-work-sans font-light text-[#1e1e1e] text-[44px] capitalize">私たちのサービス体験談</h2>
+                <p class="font-semibold text-[#93288e] text-[18px] uppercase tracking-widest mb-4">メンバーからの喜びの声</p>
+                <h2 class="font-light text-[#1e1e1e] text-[44px]">私たちのサービス体験談</h2>
             </div>
             <div class="flex-1">
-                <p class="font-poppins text-[rgba(25,24,37,0.75)] text-[16px] leading-relaxed">実際にCRUISE PARTNERs Japanのサービスをご利用いただいたメンバーの皆様から、たくさんの喜びの声をいただいています。</p>
+                <p class="text-[rgba(25,24,37,0.75)] text-[16px] leading-relaxed font-light">実際にCRUISE PARTNERs Japanのサービスをご利用いただいたメンバーの皆様から、たくさんの喜びの声をいただいています。</p>
             </div>
         </div>
 
@@ -271,7 +286,7 @@
             <!-- Testimonial Card -->
             <div class="flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-[50px] h-[449px]">
                 <img src="http://localhost:3845/assets/f289701813e9a96246b3a006a3ac940ae18c2af9.svg" alt="" class="w-[52px] h-[43px]">
-                <p class="font-poppins text-[#222222] text-[16px] leading-relaxed flex-1">毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。</p>
+                <p class="text-[#222222] text-[16px] leading-relaxed flex-1 font-light">毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。</p>
 
                 <div class="flex items-center justify-end">
                     <img src="http://localhost:3845/assets/fdda65b3667882c2a6f05dfd475974c3eea11f66.svg" alt="" class="w-[52px] h-[43px] rotate-180">
@@ -288,15 +303,15 @@
                         </div>
                         <img src="http://localhost:3845/assets/3bd79ac145447af7ae55842a652279726328bd55.png" alt="" class="w-[80px] h-[80px] rounded-full">
                         <div>
-                            <p class="font-poppins text-[rgba(25,24,37,0.75)] text-[24px]">佐藤様</p>
-                            <p class="font-poppins text-[rgba(25,24,37,0.75)] text-[16px]">東京都</p>
+                            <p class="text-[rgba(25,24,37,0.75)] text-[24px] font-medium">佐藤様</p>
+                            <p class="text-[rgba(25,24,37,0.75)] text-[16px] font-light">東京都</p>
                         </div>
                     </div>
                     <div class="flex gap-2">
-                        <button class="w-[50px] h-[50px] bg-[#f6f5f5] rounded-full flex items-center justify-center shadow-lg">
+                        <button class="w-[50px] h-[50px] bg-[#f6f5f5] rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all">
                             <img src="http://localhost:3845/assets/f4be0074f8866a627e1d82e8c06433c2ffac9249.svg" alt="" class="w-[7.6px] h-[15.3px] rotate-180">
                         </button>
-                        <button class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg">
+                        <button class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg hover:bg-[#7a2075] transition-all">
                             <img src="http://localhost:3845/assets/13cbf8b0dad6a5595287643c0e8d7b2fb4fe74e9.svg" alt="" class="w-[7.6px] h-[15.3px]">
                         </button>
                     </div>
@@ -313,7 +328,7 @@
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <button class="w-[50px] h-[50px] bg-[#f6f5f5] rounded-full flex items-center justify-center shadow-lg">
+                    <button class="w-[50px] h-[50px] bg-[#f6f5f5] rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all">
                         <img src="http://localhost:3845/assets/f4be0074f8866a627e1d82e8c06433c2ffac9249.svg" alt="" class="w-[7.6px] h-[15.3px] rotate-180">
                     </button>
                     <div class="flex gap-[11px]">
@@ -322,7 +337,7 @@
                         <img src="http://localhost:3845/assets/2aaf09dec80b069b0f6f76a9f44fffc43c81b19d.png" alt="" class="w-[90px] h-[90px] rounded-[10px] object-cover">
                         <img src="http://localhost:3845/assets/4be65ccd1c8e940f34dc85e3e64a99e8a4b09824.png" alt="" class="w-[90px] h-[90px] rounded-[10px] object-cover">
                     </div>
-                    <button class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg">
+                    <button class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg hover:bg-[#7a2075] transition-all">
                         <img src="http://localhost:3845/assets/13cbf8b0dad6a5595287643c0e8d7b2fb4fe74e9.svg" alt="" class="w-[7.6px] h-[15.3px]">
                     </button>
                 </div>
@@ -340,7 +355,7 @@
                         <text x="0" y="40" font-family="serif" font-size="22" fill="#93288e">CRUISE PARTNERs</text>
                     </svg>
                 </div>
-                <p class="font-poppins text-[14px] text-gray-600 leading-relaxed mb-6">
+                <p class="text-[14px] text-gray-600 leading-relaxed mb-6 font-light">
                     Copyright © CRUISE PARTNERs Japan<br/>
                     All rights reserved
                 </p>
@@ -365,42 +380,42 @@
 
             <!-- Menu Column -->
             <div>
-                <h3 class="font-poppins font-semibold text-[18px] text-black mb-[34px]">メニュー</h3>
+                <h3 class="font-semibold text-[18px] text-black mb-[34px] tracking-wide">メニュー</h3>
                 <ul class="space-y-[19px]">
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">ホーム</a></li>
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">サービスについて</a></li>
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">ビジネスについて</a></li>
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">会員の声</a></li>
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">無料相談</a></li>
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">運営者情報</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">ホーム</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">サービスについて</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">ビジネスについて</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">会員の声</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">無料相談</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">運営者情報</a></li>
                 </ul>
             </div>
 
             <!-- Info Column -->
             <div>
-                <h3 class="font-poppins font-semibold text-[18px] text-black mb-[34px]">法的情報</h3>
+                <h3 class="font-semibold text-[18px] text-black mb-[34px] tracking-wide">法的情報</h3>
                 <ul class="space-y-[19px]">
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">プライバシーポリシー</a></li>
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">利用規約</a></li>
-                    <li><a href="#" class="font-poppins text-[14px] text-gray-600 hover:text-[#93288e]">特定商取引法に基づく表記</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">プライバシーポリシー</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">利用規約</a></li>
+                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">特定商取引法に基づく表記</a></li>
                 </ul>
             </div>
 
             <!-- Contact Column -->
             <div>
-                <h3 class="font-poppins font-semibold text-[18px] text-black mb-[34px]">お問い合わせ</h3>
+                <h3 class="font-semibold text-[18px] text-black mb-[34px] tracking-wide">お問い合わせ</h3>
                 <div class="space-y-[30px]">
                     <div class="flex items-center gap-[12px]">
                         <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-                        <p class="font-poppins text-[14px] text-gray-600">contact@company.com</p>
+                        <p class="text-[14px] text-gray-600 font-light">contact@company.com</p>
                     </div>
                     <div class="flex items-center gap-[12px]">
                         <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-                        <p class="font-poppins text-[14px] text-gray-600">(xx) xxxx-xxxx</p>
+                        <p class="text-[14px] text-gray-600 font-light">(xx) xxxx-xxxx</p>
                     </div>
                     <div class="flex items-start gap-[13px]">
                         <svg class="w-5 h-5 text-gray-600 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-                        <p class="font-poppins text-[14px] text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetur</p>
+                        <p class="text-[14px] text-gray-600 leading-relaxed font-light">Lorem ipsum dolor sit amet, consectetur</p>
                     </div>
                 </div>
             </div>
@@ -408,8 +423,8 @@
 
         <!-- Footer Bottom -->
         <div class="border-t border-gray-200 pt-[25px] flex items-center justify-between">
-            <p class="font-poppins text-[14px] text-gray-600">© 2025 CRUISE PARTNERs Japan. All rights reserved.</p>
-            <p class="font-poppins text-[14px] text-gray-600">プライバシーポリシー · 利用規約</p>
+            <p class="text-[14px] text-gray-600 font-light">© 2025 CRUISE PARTNERs Japan. All rights reserved.</p>
+            <p class="text-[14px] text-gray-600 font-light">プライバシーポリシー · 利用規約</p>
         </div>
     </footer>
 
