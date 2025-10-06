@@ -917,18 +917,14 @@
 
         document.getElementById('testimonial-next').addEventListener('click', () => {
             clearInterval(testimonialAutoPlayInterval);
-            clearInterval(galleryAutoPlayInterval);
             nextTestimonial();
             startTestimonialAutoPlay();
-            startGalleryAutoPlay();
         });
 
         document.getElementById('testimonial-prev').addEventListener('click', () => {
             clearInterval(testimonialAutoPlayInterval);
-            clearInterval(galleryAutoPlayInterval);
             prevTestimonial();
             startTestimonialAutoPlay();
-            startGalleryAutoPlay();
         });
 
         // ===== ギャラリースライダー =====
@@ -989,30 +985,24 @@
         }
 
         document.getElementById('gallery-next').addEventListener('click', () => {
-            clearInterval(galleryAutoPlayInterval);
             clearInterval(testimonialAutoPlayInterval);
             nextGalleryImage();
-            startGalleryAutoPlay();
             startTestimonialAutoPlay();
         });
 
         document.getElementById('gallery-prev').addEventListener('click', () => {
-            clearInterval(galleryAutoPlayInterval);
             clearInterval(testimonialAutoPlayInterval);
             prevGalleryImage();
-            startGalleryAutoPlay();
             startTestimonialAutoPlay();
         });
 
         // サムネイルクリックで切り替え
         document.querySelectorAll('.gallery-thumbnail').forEach((thumbnail, index) => {
             thumbnail.addEventListener('click', () => {
-                clearInterval(galleryAutoPlayInterval);
                 clearInterval(testimonialAutoPlayInterval);
                 currentIndex = index;
                 updateGalleryImage(index);
                 updateTestimonial(index);
-                startGalleryAutoPlay();
                 startTestimonialAutoPlay();
             });
         });
@@ -1020,7 +1010,6 @@
         // 初期表示
         updateGalleryImage(0);
         updateTestimonial(0);
-        startGalleryAutoPlay();
         startTestimonialAutoPlay();
 
 
