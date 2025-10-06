@@ -621,9 +621,9 @@
                             <img src="http://localhost:3845/assets/d860343dcc8bd915fe9f2842314e2ee69940357c.png" alt="" class="w-[50px] h-[50px] rounded-full border-2 border-white">
                             <img src="http://localhost:3845/assets/7b6bab3c3330e2c1ea7b51911ac0b51f51ad0562.png" alt="" class="w-[50px] h-[50px] rounded-full border-2 border-white">
                         </div>
-                        <img id="testimonial-avatar" src="http://localhost:3845/assets/3bd79ac145447af7ae55842a652279726328bd55.png" alt="" class="w-[80px] h-[80px] rounded-full">
+                        <img id="testimonial-avatar" src="famillyのコピー.jpeg" alt="" class="w-[80px] h-[80px] rounded-full object-cover object-[center_30%]">
                         <div>
-                            <p id="testimonial-name" class="text-[rgba(25,24,37,0.75)] text-[24px] font-medium">佐藤様</p>
+                            <p id="testimonial-name" class="text-[rgba(25,24,37,0.75)] text-[24px] font-medium">山田ファミリー様</p>
                             <p id="testimonial-location" class="text-[rgba(25,24,37,0.75)] text-[16px] font-light">東京都</p>
                         </div>
                     </div>
@@ -837,26 +837,37 @@
         // ===== 口コミスライダー =====
         const testimonials = [
             {
-                text: '毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。',
-                name: '佐藤様',
+                text: '家族4人でディズニークルーズに参加しました。子供たちは大喜びで、キャラクターとの触れ合いやキッズプログラムも充実していて安心でした。毎月の積立で夢の家族旅行が実現できて本当に感謝しています。次は地中海クルーズを計画中です！',
+                name: '山田ファミリー様',
                 location: '東京都',
-                avatar: 'http://localhost:3845/assets/3bd79ac145447af7ae55842a652279726328bd55.png'
+                avatar: 'famillyのコピー.jpeg',
+                avatarPos: 'object-[center_30%]'
             },
             {
-                text: '最初は半信半疑でしたが、実際にクルーズに参加してみて本当に素晴らしい体験ができました。毎月のポイント還元も魅力的で、次の旅行が楽しみです。サポートも丁寧で安心して利用できています。',
-                name: '田中様',
-                location: '大阪府',
-                avatar: 'http://localhost:3845/assets/798133786412319b2966c968193072cd8da29ef8.png'
-            },
-            {
-                text: '世界中の素晴らしい場所を訪れながら、同時に資産形成ができるなんて夢のようです。クルーズの質も高く、スタッフの対応も素晴らしい。友人にも自信を持って勧められるサービスです。',
-                name: '鈴木様',
+                text: '婚約記念に利用しました。洋上でのロマンチックなディナーや夕日を見ながらのデッキ散歩は一生の思い出です。カップル向けのサービスも充実していて、特別な時間を過ごすことができました。次は新婚旅行でまた利用したいです。',
+                name: '佐藤カップル様',
                 location: '神奈川県',
-                avatar: 'http://localhost:3845/assets/d860343dcc8bd915fe9f2842314e2ee69940357c.png'
+                avatar: 'young coupleのコピー.jpeg',
+                avatarPos: 'object-[center_60%]'
+            },
+            {
+                text: '友人と二人で参加しました。スパやヨガなどのウェルネスプログラムが充実していて、日頃の疲れを癒すことができました。女性同士でも安心して楽しめる雰囲気で、素敵な出会いもありました。また参加したいです！',
+                name: '鈴木様',
+                location: '大阪府',
+                avatar: 'women.jpeg',
+                avatarPos: 'object-[center_30%]'
+            },
+            {
+                text: '一人旅でクルーズに参加しましたが、同じ趣味を持つ仲間との出会いがあり、とても充実した時間を過ごせました。船内のカジノやバーも楽しく、自分へのご褒美として最高の体験でした。ビジネスとしても魅力的で、今は仲間を紹介しています。',
+                name: '田中様',
+                location: '福岡県',
+                avatar: 'manのコピー.jpeg',
+                avatarPos: 'object-center'
             }
         ];
 
-        let currentTestimonialIndex = 0;
+        // 共有インデックス（口コミとギャラリーを同期）
+        let currentIndex = 0;
         let testimonialAutoPlayInterval;
 
         function updateTestimonial(index) {
@@ -864,17 +875,21 @@
             document.getElementById('testimonial-text').textContent = testimonial.text;
             document.getElementById('testimonial-name').textContent = testimonial.name;
             document.getElementById('testimonial-location').textContent = testimonial.location;
-            document.getElementById('testimonial-avatar').src = testimonial.avatar;
+            const avatarImg = document.getElementById('testimonial-avatar');
+            avatarImg.src = testimonial.avatar;
+            avatarImg.className = 'w-[80px] h-[80px] rounded-full object-cover ' + testimonial.avatarPos;
         }
 
         function nextTestimonial() {
-            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-            updateTestimonial(currentTestimonialIndex);
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            updateTestimonial(currentIndex);
+            updateGalleryImage(currentIndex);
         }
 
         function prevTestimonial() {
-            currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
-            updateTestimonial(currentTestimonialIndex);
+            currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial(currentIndex);
+            updateGalleryImage(currentIndex);
         }
 
         function startTestimonialAutoPlay() {
@@ -883,14 +898,18 @@
 
         document.getElementById('testimonial-next').addEventListener('click', () => {
             clearInterval(testimonialAutoPlayInterval);
+            clearInterval(galleryAutoPlayInterval);
             nextTestimonial();
             startTestimonialAutoPlay();
+            startGalleryAutoPlay();
         });
 
         document.getElementById('testimonial-prev').addEventListener('click', () => {
             clearInterval(testimonialAutoPlayInterval);
+            clearInterval(galleryAutoPlayInterval);
             prevTestimonial();
             startTestimonialAutoPlay();
+            startGalleryAutoPlay();
         });
 
         startTestimonialAutoPlay();
@@ -903,7 +922,6 @@
             'manのコピー.jpeg'
         ];
 
-        let currentGalleryIndex = 0;
         let galleryAutoPlayInterval;
 
         function updateGalleryImage(index) {
@@ -928,13 +946,15 @@
         }
 
         function nextGalleryImage() {
-            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
-            updateGalleryImage(currentGalleryIndex);
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            updateGalleryImage(currentIndex);
+            updateTestimonial(currentIndex);
         }
 
         function prevGalleryImage() {
-            currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
-            updateGalleryImage(currentGalleryIndex);
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateGalleryImage(currentIndex);
+            updateTestimonial(currentIndex);
         }
 
         function startGalleryAutoPlay() {
@@ -943,28 +963,36 @@
 
         document.getElementById('gallery-next').addEventListener('click', () => {
             clearInterval(galleryAutoPlayInterval);
+            clearInterval(testimonialAutoPlayInterval);
             nextGalleryImage();
             startGalleryAutoPlay();
+            startTestimonialAutoPlay();
         });
 
         document.getElementById('gallery-prev').addEventListener('click', () => {
             clearInterval(galleryAutoPlayInterval);
+            clearInterval(testimonialAutoPlayInterval);
             prevGalleryImage();
             startGalleryAutoPlay();
+            startTestimonialAutoPlay();
         });
 
         // サムネイルクリックで切り替え
         document.querySelectorAll('.gallery-thumbnail').forEach((thumbnail, index) => {
             thumbnail.addEventListener('click', () => {
                 clearInterval(galleryAutoPlayInterval);
-                currentGalleryIndex = index;
+                clearInterval(testimonialAutoPlayInterval);
+                currentIndex = index;
                 updateGalleryImage(index);
+                updateTestimonial(index);
                 startGalleryAutoPlay();
+                startTestimonialAutoPlay();
             });
         });
 
-        // 初期ハイライト設定
+        // 初期表示
         updateGalleryImage(0);
+        updateTestimonial(0);
         startGalleryAutoPlay();
 
 
