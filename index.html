@@ -606,7 +606,7 @@
             <!-- Testimonial Card -->
             <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-[50px] h-[449px]">
                 <img src="http://localhost:3845/assets/f289701813e9a96246b3a006a3ac940ae18c2af9.svg" alt="" class="w-[52px] h-[43px]">
-                <p id="testimonial-text" class="text-[#222222] text-[18px] leading-relaxed flex-1 font-normal transition-opacity duration-500">毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。</p>
+                <p id="testimonial-text" class="text-[#222222] text-[18px] leading-relaxed flex-1 font-normal transition-all duration-500">毎月の積立が実質2倍のポイントになる仕組みに驚きました。昨年は家族でカリブ海クルーズを楽しみ、今年は地中海クルーズを計画中です。紹介した友人も大変喜んでくれて、月会費も無料になりました。旅を楽しみながら、将来の資産形成もできる、まさに理想的なサービスです。</p>
 
                 <div class="flex items-center justify-end">
                     <img src="http://localhost:3845/assets/fdda65b3667882c2a6f05dfd475974c3eea11f66.svg" alt="" class="w-[52px] h-[43px] rotate-180">
@@ -614,10 +614,10 @@
 
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-[20px]">
-                        <img id="testimonial-avatar" src="famillyのコピー.jpeg" alt="" class="w-[80px] h-[80px] rounded-full object-cover object-[center_30%] transition-opacity duration-500">
+                        <img id="testimonial-avatar" src="famillyのコピー.jpeg" alt="" class="w-[80px] h-[80px] rounded-full object-cover object-[center_30%] transition-all duration-500">
                         <div>
-                            <p id="testimonial-name" class="text-[rgba(25,24,37,0.75)] text-[22px] font-medium leading-tight transition-opacity duration-500">山田ファミリー様</p>
-                            <p id="testimonial-location" class="text-[rgba(25,24,37,0.75)] text-[16px] font-light mt-1 transition-opacity duration-500">東京都</p>
+                            <p id="testimonial-name" class="text-[rgba(25,24,37,0.75)] text-[22px] font-medium leading-tight transition-all duration-500">山田ファミリー様</p>
+                            <p id="testimonial-location" class="text-[rgba(25,24,37,0.75)] text-[16px] font-light mt-1 transition-all duration-500">東京都</p>
                         </div>
                     </div>
                     <div class="flex gap-2">
@@ -870,25 +870,33 @@
             const locationEl = document.getElementById('testimonial-location');
             const avatarImg = document.getElementById('testimonial-avatar');
 
-            // フェードアウト
+            // フェードアウト＆スライドアウト
             textEl.style.opacity = '0';
+            textEl.style.transform = 'translateX(-20px)';
             nameEl.style.opacity = '0';
+            nameEl.style.transform = 'translateX(-20px)';
             locationEl.style.opacity = '0';
+            locationEl.style.transform = 'translateX(-20px)';
             avatarImg.style.opacity = '0';
+            avatarImg.style.transform = 'translateX(-20px)';
 
-            // 内容を更新してフェードイン
+            // 内容を更新してフェードイン＆スライドイン
             setTimeout(() => {
                 textEl.textContent = testimonial.text;
                 nameEl.textContent = testimonial.name;
                 locationEl.textContent = testimonial.location;
                 avatarImg.src = testimonial.avatar;
-                avatarImg.className = 'w-[80px] h-[80px] rounded-full object-cover transition-opacity duration-500 ' + testimonial.avatarPos;
+                avatarImg.className = 'w-[80px] h-[80px] rounded-full object-cover transition-all duration-500 ' + testimonial.avatarPos;
 
                 textEl.style.opacity = '1';
+                textEl.style.transform = 'translateX(0)';
                 nameEl.style.opacity = '1';
+                nameEl.style.transform = 'translateX(0)';
                 locationEl.style.opacity = '1';
+                locationEl.style.transform = 'translateX(0)';
                 avatarImg.style.opacity = '1';
-            }, 500);
+                avatarImg.style.transform = 'translateX(0)';
+            }, 300);
         }
 
         function nextTestimonial() {
@@ -936,11 +944,21 @@
         function updateGalleryImage(index) {
             const mainImageContainer = document.getElementById('gallery-main-image');
             const imgElement = mainImageContainer.querySelector('#main-gallery-img');
-            imgElement.src = galleryImages[index];
 
-            // object-positionを更新
-            const positions = ['object-[center_30%]', 'object-[center_60%]', 'object-[center_30%]', 'object-center'];
-            imgElement.className = 'w-full h-full object-cover ' + positions[index];
+            // フェード＆スライドエフェクト
+            imgElement.style.opacity = '0';
+            imgElement.style.transform = 'translateX(20px)';
+
+            setTimeout(() => {
+                imgElement.src = galleryImages[index];
+
+                // object-positionを更新
+                const positions = ['object-[center_30%]', 'object-[center_60%]', 'object-[center_30%]', 'object-center'];
+                imgElement.className = 'w-full h-full object-cover transition-all duration-500 ' + positions[index];
+
+                imgElement.style.opacity = '1';
+                imgElement.style.transform = 'translateX(0)';
+            }, 300);
 
             // サムネイルのハイライト更新
             document.querySelectorAll('.gallery-thumbnail').forEach((thumb, i) => {
