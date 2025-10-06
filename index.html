@@ -1011,7 +1011,7 @@
             // 自動スクロールのアニメーション
             function autoScroll() {
                 if (!isHovered && !isDragging) {
-                    scrollPosition -= 2; // スクロール速度（2px/frame）
+                    scrollPosition -= 3; // スクロール速度（3px/frame）
 
                     // 最初のセットが完全に左に消えたら、位置をリセット
                     if (Math.abs(scrollPosition) >= setWidth) {
