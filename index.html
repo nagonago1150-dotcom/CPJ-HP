@@ -174,30 +174,15 @@
         .delay-400 { animation-delay: 0.4s; }
 
         /* 無限スクロールカルーセル */
-        @keyframes scroll-carousel {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
         .carousel-scroll {
             cursor: grab;
             user-select: none;
+            will-change: transform;
+            transition: none;
         }
 
         .carousel-scroll:active {
             cursor: grabbing;
-        }
-
-        .carousel-scroll.auto-scroll {
-            animation: scroll-carousel 30s linear infinite;
-        }
-
-        .carousel-scroll.auto-scroll:hover {
-            animation-play-state: paused;
         }
     </style>
 </head>
@@ -968,71 +953,120 @@
         // 5秒ごとに画像を切り替え
         setInterval(nextHeroSlide, 5000);
 
-        // ===== カルーセルのドラッグスクロール機能 =====
+        // ===== 無限スクロールカルーセル =====
         const carousels = document.querySelectorAll('.carousel-scroll');
 
         carousels.forEach(carousel => {
-            // 初期状態で自動スクロールを有効化
-            carousel.classList.add('auto-scroll');
-
-            let isDown = false;
-            let startX;
+            // カルーセルの設定
+            let scrollPosition = 0;
+            let animationId = null;
+            let isHovered = false;
             let isDragging = false;
+            let startX = 0;
+            let currentX = 0;
 
-            carousel.addEventListener('mousedown', (e) => {
-                isDown = true;
-                startX = e.pageX;
-                isDragging = false;
-                // 自動スクロールを一時停止
-                carousel.classList.remove('auto-scroll');
+            // 最初のセットのカード数を数える（複製前の半分）
+            const allCards = carousel.children;
+            const totalCards = allCards.length;
+            const originalCardCount = totalCards / 2; // 複製されているので半分が元のカード数
+
+            // 最初のカードの幅 + gap を計算
+            const firstCard = allCards[0];
+            const cardStyle = window.getComputedStyle(firstCard);
+            const cardWidth = firstCard.offsetWidth;
+            const gap = 32; // gap-8 = 32px
+
+            // 1セット分の幅を計算
+            const setWidth = (cardWidth + gap) * originalCardCount;
+
+            // 自動スクロールのアニメーション
+            function autoScroll() {
+                if (!isHovered && !isDragging) {
+                    scrollPosition -= 1; // スクロール速度（1px/frame）
+
+                    // 最初のセットが完全に左に消えたら、位置をリセット
+                    if (Math.abs(scrollPosition) >= setWidth) {
+                        scrollPosition = 0;
+                    }
+
+                    carousel.style.transform = `translateX(${scrollPosition}px)`;
+                }
+
+                animationId = requestAnimationFrame(autoScroll);
+            }
+
+            // 自動スクロール開始
+            autoScroll();
+
+            // ホバーイベント
+            carousel.addEventListener('mouseenter', () => {
+                isHovered = true;
             });
 
             carousel.addEventListener('mouseleave', () => {
-                if (isDown) {
-                    isDown = false;
-                    // 自動スクロールを再開
-                    setTimeout(() => {
-                        carousel.classList.add('auto-scroll');
-                    }, 100);
-                }
+                isHovered = false;
             });
 
-            carousel.addEventListener('mouseup', () => {
-                if (isDown) {
-                    isDown = false;
-                    // 自動スクロールを再開
-                    setTimeout(() => {
-                        carousel.classList.add('auto-scroll');
-                    }, 100);
+            // ドラッグイベント
+            carousel.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX;
+                currentX = scrollPosition;
+                carousel.style.cursor = 'grabbing';
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    carousel.style.cursor = 'grab';
                 }
             });
 
             carousel.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
+                if (!isDragging) return;
                 e.preventDefault();
-                isDragging = true;
-                const x = e.pageX;
-                const walk = (x - startX);
-                startX = x;
 
-                // 現在のtransformを取得
-                const style = window.getComputedStyle(carousel);
-                const matrix = new DOMMatrix(style.transform);
-                const currentX = matrix.m41;
+                const diff = e.pageX - startX;
+                scrollPosition = currentX + diff;
 
-                // 新しい位置を設定
-                carousel.style.transform = `translateX(${currentX + walk}px)`;
-            });
-
-            // ホバー時の自動スクロール一時停止を有効化
-            carousel.addEventListener('mouseenter', () => {
-                if (!isDown) {
-                    carousel.style.animationPlayState = 'paused';
+                // 位置を正規化（無限ループのため）
+                if (scrollPosition > 0) {
+                    scrollPosition = -setWidth + (scrollPosition % setWidth);
+                } else if (Math.abs(scrollPosition) >= setWidth * 2) {
+                    scrollPosition = scrollPosition % setWidth;
                 }
+
+                carousel.style.transform = `translateX(${scrollPosition}px)`;
             });
 
-            carousel.addEventListener('mouseleave', () => {
-                carousel.style.animationPlayState = 'running';
+            // タッチデバイス対応
+            let touchStartX = 0;
+            let touchCurrentX = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                touchStartX = e.touches[0].pageX;
+                touchCurrentX = scrollPosition;
+            });
+
+            carousel.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+
+                const diff = e.touches[0].pageX - touchStartX;
+                scrollPosition = touchCurrentX + diff;
+
+                // 位置を正規化
+                if (scrollPosition > 0) {
+                    scrollPosition = -setWidth + (scrollPosition % setWidth);
+                } else if (Math.abs(scrollPosition) >= setWidth * 2) {
+                    scrollPosition = scrollPosition % setWidth;
+                }
+
+                carousel.style.transform = `translateX(${scrollPosition}px)`;
             });
         });
 
