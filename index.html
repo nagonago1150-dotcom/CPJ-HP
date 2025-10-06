@@ -641,7 +641,7 @@
             <!-- Video Gallery Card -->
             <div class="fade-up card-hover flex-1 bg-white rounded-[20px] shadow-[0px_4px_34px_0px_rgba(250,134,183,0.2)] p-5 flex flex-col gap-5">
                 <div id="gallery-main-image" class="relative h-[300px] rounded-[10px] overflow-hidden flex items-center justify-center bg-gray-200 cursor-pointer">
-                    <img src="http://localhost:3845/assets/d4e1e525adf34d0a116a3583f49147e8a8c66f9e.png" alt="" class="w-full h-full object-cover">
+                    <img id="main-gallery-img" src="famillyのコピー.jpeg" alt="" class="w-full h-full object-cover object-center">
                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <img src="http://localhost:3845/assets/85b78f4ab6e382f5963b24ec9011fe03eacd389c.png" alt="Play" class="w-[117px] h-[117px]">
                     </div>
@@ -652,10 +652,10 @@
                         <img src="http://localhost:3845/assets/f4be0074f8866a627e1d82e8c06433c2ffac9249.svg" alt="" class="w-[7.6px] h-[15.3px] rotate-180">
                     </button>
                     <div class="flex gap-[11px]">
-                        <img src="http://localhost:3845/assets/2be388556490e4fe5b69dbfbd8cc61e2d38b7eae.png" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="0">
-                        <img src="http://localhost:3845/assets/c393d8f84a2e42ea14763b3e75da283194a6f0e9.png" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="1">
-                        <img src="http://localhost:3845/assets/2aaf09dec80b069b0f6f76a9f44fffc43c81b19d.png" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="2">
-                        <img src="http://localhost:3845/assets/4be65ccd1c8e940f34dc85e3e64a99e8a4b09824.png" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="3">
+                        <img src="famillyのコピー.jpeg" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover object-center cursor-pointer border-2 border-[#93288e] hover:border-[#93288e] transition-all" data-index="0">
+                        <img src="young coupleのコピー.jpeg" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover object-center cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="1">
+                        <img src="women.jpeg" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover object-center cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="2">
+                        <img src="manのコピー.jpeg" alt="" class="gallery-thumbnail w-[90px] h-[90px] rounded-[10px] object-cover object-center cursor-pointer border-2 border-transparent hover:border-[#93288e] transition-all" data-index="3">
                     </div>
                     <button id="gallery-next" class="w-[50px] h-[50px] bg-[#93288e] rounded-full flex items-center justify-center shadow-lg hover:bg-[#7a2075] transition-all">
                         <img src="http://localhost:3845/assets/13cbf8b0dad6a5595287643c0e8d7b2fb4fe74e9.svg" alt="" class="w-[7.6px] h-[15.3px]">
@@ -897,10 +897,10 @@
 
         // ===== ギャラリースライダー =====
         const galleryImages = [
-            'http://localhost:3845/assets/2be388556490e4fe5b69dbfbd8cc61e2d38b7eae.png',
-            'http://localhost:3845/assets/c393d8f84a2e42ea14763b3e75da283194a6f0e9.png',
-            'http://localhost:3845/assets/2aaf09dec80b069b0f6f76a9f44fffc43c81b19d.png',
-            'http://localhost:3845/assets/4be65ccd1c8e940f34dc85e3e64a99e8a4b09824.png'
+            'famillyのコピー.jpeg',
+            'young coupleのコピー.jpeg',
+            'women.jpeg',
+            'manのコピー.jpeg'
         ];
 
         let currentGalleryIndex = 0;
@@ -908,7 +908,7 @@
 
         function updateGalleryImage(index) {
             const mainImageContainer = document.getElementById('gallery-main-image');
-            const imgElement = mainImageContainer.querySelector('img');
+            const imgElement = mainImageContainer.querySelector('#main-gallery-img');
             imgElement.src = galleryImages[index];
 
             // サムネイルのハイライト更新
