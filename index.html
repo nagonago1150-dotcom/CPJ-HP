@@ -204,13 +204,11 @@
                 <img src="icon.webp" alt="CRUISE PARTNERs Japan" class="w-full h-full object-contain">
             </div>
             <div class="flex items-center gap-8 flex-1 justify-center">
-                <div class="border-b-2 border-white/80 px-2 py-2">
-                    <p class="text-white text-[15px] font-medium tracking-wide whitespace-nowrap">サービスの魅力</p>
-                </div>
-                <p class="text-white text-[15px] font-light tracking-wide cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap">世界各地の寄港地</p>
-                <p class="text-white text-[15px] font-light tracking-wide cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap">会員の声</p>
-                <p class="text-white text-[15px] font-light tracking-wide cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap">無料相談</p>
-                <p class="text-white text-[15px] font-light tracking-wide cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap">ビジネスについて</p>
+                <a href="#service" class="border-b-2 border-white/80 px-2 py-2 text-white text-[15px] font-medium tracking-wide whitespace-nowrap hover:opacity-80 transition-opacity">サービスの魅力</a>
+                <a href="#destinations" class="text-white text-[15px] font-light tracking-wide cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap">世界各地の寄港地</a>
+                <a href="#reviews" class="text-white text-[15px] font-light tracking-wide cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap">会員の声</a>
+                <a href="#consultation" class="text-white text-[15px] font-light tracking-wide cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap">無料相談</a>
+                <a href="#business" class="text-white text-[15px] font-light tracking-wide cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap">ビジネスについて</a>
             </div>
             <a href="https://lin.ee/aF6snAh" target="_blank" rel="noopener noreferrer" class="btn-hover bg-[#93288e] text-white px-8 py-3.5 rounded-sm font-medium text-[14px] tracking-wide hover:bg-[#7a2075] transition-all whitespace-nowrap flex-shrink-0 inline-block text-center">
                 無料相談する
@@ -229,7 +227,7 @@
     </div>
 
     <!-- What we Serve Section -->
-    <section class="bg-white px-[100px] py-[60px] flex flex-col gap-8">
+    <section id="service" class="bg-white px-[100px] py-[60px] flex flex-col gap-8">
         <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">最高峰のクルーズ体験</h2>
         <div class="relative overflow-hidden">
             <div class="carousel-scroll flex gap-8">
@@ -349,7 +347,7 @@
     </section>
 
     <!-- Our Destinations Section -->
-    <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
+    <section id="destinations" class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
         <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">世界各地の寄港地</h2>
         <div class="relative overflow-hidden">
             <div class="carousel-scroll flex gap-8">
@@ -515,7 +513,7 @@
     </section>
 
 <!-- Travel Expert CTA Section -->
-    <section class="fade-up relative w-full h-[437px] overflow-hidden">
+    <section id="consultation" class="fade-up relative w-full h-[437px] overflow-hidden">
         <img src="images/travel-expert-bg.jpg" alt="" loading="lazy" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/35"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center gap-[26px] px-[162px]">
@@ -526,7 +524,7 @@
     </section>
 
     <!-- Community Section -->
-    <section class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
+    <section id="business" class="px-[100px] py-[60px] bg-white flex flex-col gap-8">
         <h2 class="fade-up font-light text-[#1e1e1e] text-[44px]">私たちと一緒に、旅と資産を築く仲間になりませんか？</h2>
         <div class="relative overflow-hidden">
             <div class="carousel-scroll flex gap-8">
@@ -621,7 +619,7 @@
     </section>
 
     <!-- Reviews & Testimonials Section -->
-    <section class="px-[100px] py-[60px] bg-white">
+    <section id="reviews" class="px-[100px] py-[60px] bg-white">
         <div class="fade-up flex gap-4 items-center mb-8">
             <div class="flex-1">
                 <p class="font-semibold text-[#93288e] text-[18px] uppercase tracking-widest mb-4">メンバーからの喜びの声</p>
@@ -752,10 +750,10 @@
                 <h3 class="font-semibold text-[18px] text-black mb-[34px] tracking-wide">メニュー</h3>
                 <ul class="space-y-[19px]">
                     <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">ホーム</a></li>
-                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">サービスについて</a></li>
-                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">ビジネスについて</a></li>
-                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">会員の声</a></li>
-                    <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">無料相談</a></li>
+                    <li><a href="#service" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">サービスについて</a></li>
+                    <li><a href="#business" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">ビジネスについて</a></li>
+                    <li><a href="#reviews" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">会員の声</a></li>
+                    <li><a href="#consultation" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">無料相談</a></li>
                     <li><a href="#" class="text-[14px] text-gray-600 hover:text-[#93288e] font-light transition-colors">運営者情報</a></li>
                 </ul>
             </div>
