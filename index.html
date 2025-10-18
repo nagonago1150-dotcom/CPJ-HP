@@ -480,40 +480,50 @@
     </section>
 
     <!-- Top Values Section -->
-    <section class="bg-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-[100px] py-8 sm:py-10 md:py-12 xl:py-[60px] flex gap-6 md:gap-8 items-center relative overflow-hidden">
-        <div class="basis-0 flex flex-col gap-[24px] grow min-h-px min-w-px fade-up">
-            <p class="font-semibold leading-[1.5] text-[#93288e] text-[18px] tracking-wider uppercase">
+    <section class="bg-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-[100px] py-8 sm:py-10 md:py-12 xl:py-[60px] flex flex-col lg:flex-row gap-6 md:gap-8 items-start relative overflow-hidden">
+        <!-- テキストエリア -->
+        <div class="flex flex-col gap-4 md:gap-6 w-full lg:w-1/4 fade-up">
+            <p class="font-semibold leading-[1.5] text-[#93288e] text-base md:text-[18px] tracking-wider uppercase">
                 クルーズ体験の特徴
             </p>
-            <h2 class="font-light leading-tight text-[#222222] text-[44px]">選ばれる3つの理由</h2>
-            <p class="leading-[1.5] text-[16px] text-[rgba(25,24,37,0.75)]">あなたの船旅を、忘れられない体験へとエスコートします。</p>
+            <h2 class="font-light leading-tight text-[#222222] text-2xl sm:text-3xl md:text-4xl xl:text-[44px]">選ばれる3つの理由</h2>
+            <p class="leading-[1.5] text-sm md:text-base text-[rgba(25,24,37,0.75)]">あなたの船旅を、忘れられない体験へとエスコートします。</p>
         </div>
-        <div class="basis-0 flex flex-col gap-[24px] grow min-h-px min-w-px rounded-[8px] fade-up transition-all duration-500 hover:transform hover:scale-105 hover:shadow-xl" style="animation-delay: 0.1s">
-            <div class="h-[76px] w-[102px] transition-transform duration-500 hover:rotate-12">
-                <img src="images/icon-suitcase.png" alt="世界中から厳選した航路" loading="lazy" class="w-full h-full object-contain">
+
+        <!-- 理由カード(モバイル: 1カラム、タブレット: 2カラム、デスクトップ: 3カラム) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 flex-1">
+            <!-- 理由1 -->
+            <div class="flex flex-col gap-4 md:gap-6 rounded-lg fade-up transition-all duration-500 hover:transform hover:scale-105 hover:shadow-xl p-4 md:p-0" style="animation-delay: 0.1s">
+                <div class="h-16 w-20 md:h-[76px] md:w-[102px] transition-transform duration-500 hover:rotate-12">
+                    <img src="images/icon-suitcase.png" alt="世界中から厳選した航路" loading="lazy" class="w-full h-full object-contain">
+                </div>
+                <p class="font-normal leading-tight text-[#222222] text-xl md:text-2xl xl:text-[28px]">
+                    世界中から<br>厳選した航路
+                </p>
+                <p class="leading-[1.5] text-sm md:text-base text-[rgba(25,24,37,0.75)]">世界2万以上の航路の中から、コンシェルジュがあなたの理想に合う最高の体験を厳選してご提案します。</p>
             </div>
-            <p class="font-normal leading-tight text-[#222222] text-[28px]">
-                世界中から<br>厳選した航路
-            </p>
-            <p class="leading-[1.5] text-[16px] text-[rgba(25,24,37,0.75)]">世界2万以上の航路の中から、コンシェルジュがあなたの理想に合う最高の体験を厳選してご提案します。</p>
-        </div>
-        <div class="basis-0 flex flex-col gap-[24px] grow min-h-px min-w-px rounded-[9px] fade-up transition-all duration-500 hover:transform hover:scale-105 hover:shadow-xl" style="animation-delay: 0.2s">
-            <div class="h-[78px] w-[84px] transition-transform duration-500 hover:rotate-12">
-                <img src="images/icon-airplane.png" alt="専門家によるパーソナルサポート" loading="lazy" class="w-full h-full object-contain">
+
+            <!-- 理由2 -->
+            <div class="flex flex-col gap-4 md:gap-6 rounded-lg fade-up transition-all duration-500 hover:transform hover:scale-105 hover:shadow-xl p-4 md:p-0" style="animation-delay: 0.2s">
+                <div class="h-16 w-16 md:h-[78px] md:w-[84px] transition-transform duration-500 hover:rotate-12">
+                    <img src="images/icon-airplane.png" alt="専門家によるパーソナルサポート" loading="lazy" class="w-full h-full object-contain">
+                </div>
+                <p class="font-normal leading-tight text-[#222222] text-xl md:text-2xl xl:text-[28px]">
+                    専門家による<br>パーソナルサポート
+                </p>
+                <p class="leading-[1.5] text-sm md:text-base text-[rgba(25,24,37,0.75)]">単なる予約代行ではありません。あなたの旅の目的や夢に寄り添い、計画から実現まで、経験豊富な専門家が伴走します。</p>
             </div>
-            <p class="font-normal leading-tight text-[#222222] text-[28px]">
-                専門家による<br>パーソナルサポート
-            </p>
-            <p class="leading-[1.5] text-[16px] text-[rgba(25,24,37,0.75)]">単なる予約代行ではありません。あなたの旅の目的や夢に寄り添い、計画から実現まで、経験豊富な専門家が伴走します。</p>
-        </div>
-        <div class="basis-0 flex flex-col gap-[24px] grow min-h-px min-w-px rounded-[9px] fade-up transition-all duration-500 hover:transform hover:scale-105 hover:shadow-xl" style="animation-delay: 0.3s">
-            <div class="h-[86px] w-[111px] transition-transform duration-500 hover:rotate-12">
-                <img src="images/icon-card.png" alt="業界最安値という約束" loading="lazy" class="w-full h-full object-contain">
+
+            <!-- 理由3 -->
+            <div class="flex flex-col gap-4 md:gap-6 rounded-lg fade-up transition-all duration-500 hover:transform hover:scale-105 hover:shadow-xl p-4 md:p-0 sm:col-span-2 lg:col-span-1" style="animation-delay: 0.3s">
+                <div class="h-16 w-20 md:h-[86px] md:w-[111px] transition-transform duration-500 hover:rotate-12">
+                    <img src="images/icon-card.png" alt="業界最安値という約束" loading="lazy" class="w-full h-full object-contain">
+                </div>
+                <p class="font-normal leading-tight text-[#222222] text-xl md:text-2xl xl:text-[28px]">
+                    業界最安値<br>という約束
+                </p>
+                <p class="leading-[1.5] text-sm md:text-base text-[rgba(25,24,37,0.75)]">私たちは常に市場を調査し、あらゆる旅行サイトの中で最もお得な価格を保証します。賢く、そして優雅な旅をお約束します。</p>
             </div>
-            <p class="font-normal leading-tight text-[#222222] text-[28px]">
-                業界最安値<br>という約束
-            </p>
-            <p class="leading-[1.5] text-[16px] text-[rgba(25,24,37,0.75)]">私たちは常に市場を調査し、あらゆる旅行サイトの中で最もお得な価格を保証します。賢く、そして優雅な旅をお約束します。</p>
         </div>
     </section>
 
