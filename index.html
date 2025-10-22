@@ -1140,15 +1140,15 @@
             heroSlides[currentHeroIndex].style.opacity = '1';
             // アニメーションをリセットして再開
             setTimeout(() => {
-                heroSlides[currentHeroIndex].style.animation = 'kenburns 8s ease-out forwards';
+                heroSlides[currentHeroIndex].style.animation = 'kenburns 4s ease-out forwards';
             }, 50);
         }
 
         // 初期状態: 最初の画像にアニメーション適用
-        heroSlides[0].style.animation = 'kenburns 8s ease-out forwards';
+        heroSlides[0].style.animation = 'kenburns 4s ease-out forwards';
 
-        // 8秒ごとに画像を切り替え（ズームアニメーションの時間と同期）
-        setInterval(nextHeroSlide, 8000);
+        // 4秒ごとに画像を切り替え（ズームアニメーションの時間と同期）
+        setInterval(nextHeroSlide, 4000);
 
         // ===== 無限スクロールカルーセル（レスポンシブ対応） =====
         const carousels = document.querySelectorAll('.carousel-scroll');
