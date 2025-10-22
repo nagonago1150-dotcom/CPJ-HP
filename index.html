@@ -89,6 +89,20 @@
             }
         }
 
+        @keyframes kenburns {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* ヒーロー画像のズーム効果 */
+        .hero-slide {
+            transform-origin: center center;
+        }
+
         /* ===== ホバーエフェクト ===== */
 
         /* カードホバー効果 */
@@ -1110,23 +1124,31 @@
         startTestimonialAutoPlay();
 
 
-        // ===== ヒーロー画像スライドショー =====
+        // ===== ヒーロー画像スライドショー with ズーム効果 =====
         const heroSlides = document.querySelectorAll('.hero-slide');
         let currentHeroIndex = 0;
 
         function nextHeroSlide() {
-            // 現在の画像をフェードアウト
+            // 現在の画像をフェードアウトしてアニメーションリセット
             heroSlides[currentHeroIndex].style.opacity = '0';
+            heroSlides[currentHeroIndex].style.animation = 'none';
 
             // 次のインデックスを計算
             currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
 
-            // 次の画像をフェードイン
+            // 次の画像をフェードインしてズームアニメーション開始
             heroSlides[currentHeroIndex].style.opacity = '1';
+            // アニメーションをリセットして再開
+            setTimeout(() => {
+                heroSlides[currentHeroIndex].style.animation = 'kenburns 8s ease-out forwards';
+            }, 50);
         }
 
-        // 2秒ごとに画像を切り替え
-        setInterval(nextHeroSlide, 2000);
+        // 初期状態: 最初の画像にアニメーション適用
+        heroSlides[0].style.animation = 'kenburns 8s ease-out forwards';
+
+        // 8秒ごとに画像を切り替え（ズームアニメーションの時間と同期）
+        setInterval(nextHeroSlide, 8000);
 
         // ===== 無限スクロールカルーセル（レスポンシブ対応） =====
         const carousels = document.querySelectorAll('.carousel-scroll');
